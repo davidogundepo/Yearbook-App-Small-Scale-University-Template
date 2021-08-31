@@ -4,13 +4,13 @@ import '../../model/PAS/IndustrialChemistry.dart';
 import '../../notifier/PAS_NOTIFIER/industrial_chemistry_graduates_notifier.dart';
 
 getIndustrialChemistry(IndustrialChemistryNotifier industrialChemistryNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('IndustrialChemistry').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('IndustrialChemistry').orderBy("name").get();
 
   List<IndustrialChemistry> _industrialChemistryList = [];
 
-  snapshot.documents.forEach((document) {
-    IndustrialChemistry industrialChemistry = IndustrialChemistry.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    IndustrialChemistry industrialChemistry = IndustrialChemistry.fromMap(document.data());
     _industrialChemistryList.add(industrialChemistry);
   });
 

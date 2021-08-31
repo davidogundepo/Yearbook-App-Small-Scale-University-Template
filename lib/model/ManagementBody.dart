@@ -3,8 +3,12 @@ class ManagementBody {
   String staffPosition;
   String qualification;
   String yearOfAppointment;
+  String hobbies;
+  String philosophy;
+  String originState;
   String email;
   String facebook;
+  String linkedIn;
   String id;
   String image;
   String instagram;
@@ -24,7 +28,11 @@ class ManagementBody {
     twitter = data['twitter'];
     staffPosition = data['staff_position'];
     qualification = data['qualification'];
-    yearOfAppointment = data['year_of_appointment'];
+    yearOfAppointment = data['year_of_appointment'];;
+    originState = data['origin_state'];
+    hobbies = data['hobbies'];
+    philosophy = data['philosophy'];
+    linkedIn = data['linkedin'];
   }
 
 }

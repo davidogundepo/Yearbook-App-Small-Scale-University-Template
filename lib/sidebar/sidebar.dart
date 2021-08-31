@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:ui' as ui;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../notifier/sidebar_notifier.dart';
@@ -15,39 +16,43 @@ import '../sidebar/menu_item.dart';
 
 
 String schoolName = "ABC University";
-String subtitle = "Graduating Class (Royal Set 2020)";
+String subtitle = "Graduating Class (Royal Set 2021)";
 
-String agriculturalEconomicsClassTitle = "Agricultural Economics Class Graduates";
-String agriculturalExtensionAndRuralDevelopmentClassTitle = "Agricultural Extension and Rural Development Class Graduates";
+String collegeOfAgriculturalSciencesTitle = "COAS";
+String agriculturalEconomicsClassTitle = "Agric. Economics Class Graduates";
+String agriculturalExtensionAndRuralDevelopmentClassTitle = "Agric. Ext. and Rural Dev Class Graduates";
 String animalScienceClassTitle = "Animal Science Class Graduates";
-String aquacultureAndFisheriesManagementClassTitle = "Aquaculture and Fisheries Management Class Graduates";
-String cropScienceAndSoilScienceClassTitle = "Crop Science and Soil Science Class Graduates";
-String foodScienceAndNutritionClassTitle = "Food Science and Nutrition Class Graduates";
+String aquacultureAndFisheriesManagementClassTitle = "Aquaculture and Fisheries Mgt Class Graduates";
+String cropScienceAndSoilScienceClassTitle = "Crop Sci. and Soil Sci. Class Graduates";
+String foodScienceAndNutritionClassTitle = "Food Sci. and Nutrition Class Graduates";
 
+String collegeOfBusinessANDSocialSciencesTitle = "CBS";
 String accountingClassTitle = "Accounting Class Graduates";
 String bankingAndFinanceClassTitle = "Banking and Finance Class Graduates";
-String businessAdministrationClassTitle = "Business Administration Class Graduates";
+String businessAdministrationClassTitle = "Bus. Admin. Class Graduates";
 String economicsClassTitle = "Economics Class Graduates";
-String internationalRelationsClassTitle = "InternationalRelations Class Graduates";
-String massCommunicationsClassTitle = "Mass Communications Class Graduates";
-String politicalScienceClassTitle = "Political Science Class Graduates";
+String internationalRelationsClassTitle = "InterRel. Class Graduates";
+String massCommunicationsClassTitle = "Mass Comm. Class Graduates";
+String politicalScienceClassTitle = "Pol. Sci. Class Graduates";
 String sociologyClassTitle = "Sociology Class Graduates";
 
-String agriculturalAndBiosystemEngineeringClassTitle = "Agricultural and Biosystem Engineering Class Graduates";
-String chemicalEngineeringClassTitle = "Chemical Engineering Class Graduates";
-String civilEngineeringClassTitle = "Civil Engineering Class Graduates";
-String electricalAndInformationEngineeringClassTitle = "Electrical and Information Engineering Class Graduates";
-String mechanicalEngineeringClassTitle = "Mechanical Engineering Class Graduates";
-String mechatronicsEngineeringClassTitle = "Mechatronics Engineering Class Graduates";
+String collegeOfEngineeringTitle = "COE";
+String agriculturalAndBiosystemEngineeringClassTitle = "Agric. and Biosystem Eng. Class Graduates";
+String chemicalEngineeringClassTitle = "Chemical Eng. Class Graduates";
+String civilEngineeringClassTitle = "Civil Eng. Class Graduates";
+String electricalAndInformationEngineeringClassTitle = "Elect. and Info. Eng. Class Graduates";
+String mechanicalEngineeringClassTitle = "Mechanical Eng. Class Graduates";
+String mechatronicsEngineeringClassTitle = "Mechatronics Eng. Class Graduates";
 
-String appliedBiologyAndBiotechnologyClassTitle = "Applied Biology and Biotechnology Class Graduates";
+String collegeOfPureANDAppliedSciencesTitle = "CPAS";
+String appliedBiologyAndBiotechnologyClassTitle = "Applied Bly. and Bty. Class Graduates";
 String biochemistryClassTitle = "Biochemistry Class Graduates";
-String computerScienceClassTitle = "Computer Science Class Graduates";
+String computerScienceClassTitle = "Computer Sci. Class Graduates";
 String geophysicsClassTitle = "Geophysics Class Graduates";
-String industrialChemistryClassTitle = "Industrial Chemistry Class Graduates";
-String industrialMathematicsClassTitle = "Industrial Mathematics Class Graduates";
-String industrialPhysicsClassTitle = "Industrial Physics Class Graduates";
-String microbiologyClassTitle = "microbiology Class Graduates";
+String industrialChemistryClassTitle = "Ind. Chemistry Class Graduates";
+String industrialMathematicsClassTitle = "Ind. Mathematics Class Graduates";
+String industrialPhysicsClassTitle = "Ind. Physics Class Graduates";
+String microbiologyClassTitle = "Microbiology Class Graduates";
 
 String managementBodyTitle = "Management Body";
 String scpcMembersTitle = "SCPC Members";
@@ -254,521 +259,577 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               endIndent: 32,
                             ),
 
-
-                            Material(
-                              color: _currentNAVSelected == 0 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(0);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAgriculturalEconomicsGraduatesClickedEvent);
-                                },
-                                child:Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                        icon: MdiIcons.accountGroup,
-                                        title: agriculturalEconomicsClassTitle,
+                            Theme(
+                              data: ThemeData.dark()
+                                  .copyWith(accentColor: Colors.white, primaryColor: Colors.white),
+                              child: ExpansionTile(
+                                title: Text(collegeOfAgriculturalSciencesTitle,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 20,
+                                        color: textColor
+                                    ),
+                                ),
+                                children: <Widget> [
+                                  Material(
+                                    color: _currentNAVSelected == 0 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(0);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAgriculturalEconomicsGraduatesClickedEvent);
+                                      },
+                                      child:Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                              icon: MdiIcons.accountGroup,
+                                              title: agriculturalEconomicsClassTitle,
+                                            ),
                                       ),
-                                ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 1 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(1);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAgriculturalExtensionAndRuralDevelopmentGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: agriculturalExtensionAndRuralDevelopmentClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 2 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(2);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAnimalScienceGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: animalScienceClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(3);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAquacultureAndFisheriesManagementGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: aquacultureAndFisheriesManagementClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 4 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(4);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyCropScienceAndSoilScienceGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: cropScienceAndSoilScienceClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 5 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(5);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyFoodScienceAndNutritionGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: foodScienceAndNutritionClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            Material(
-                              color: _currentNAVSelected == 1 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(1);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAgriculturalExtensionAndRuralDevelopmentGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: agriculturalExtensionAndRuralDevelopmentClassTitle,
+                            Theme(
+                              data: ThemeData.dark()
+                                  .copyWith(accentColor: Colors.white, primaryColor: Colors.white),
+                              child: ExpansionTile(
+                                title: Text(collegeOfBusinessANDSocialSciencesTitle,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 20,
+                                      color: textColor
+                                  ),
+                                ),
+                                children: <Widget> [
+                                  Material(
+                                  color: _currentNAVSelected == 6 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                  child: InkWell(
+                                    splashColor: splashColorTwo,
+                                    onTap: () {
+                                      _onSelected(6);
+                                      onIconPressed();
+                                      BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAccountingGraduatesClickedEvent);
+                                    },
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: MenuItem(
+                                        icon: MdiIcons.accountGroup,
+                                        title: accountingClassTitle,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                  Material(
+                                    color: _currentNAVSelected == 7 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(7);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyBankingAndFinanceGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: bankingAndFinanceClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 8 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(8);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyBusinessAdministrationGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: businessAdministrationClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 9 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(9);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyEconomicsGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: economicsClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 10 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(10);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyInternationalRelationsGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: internationalRelationsClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 11 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(11);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMassCommunicationsGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: massCommunicationsClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 12 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(12);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyPoliticalScienceGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: politicalScienceClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 13 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(13);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySociologyGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: sociologyClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ]
+                              ),
+                            ),
+                            Theme(
+                              data: ThemeData.dark()
+                                  .copyWith(accentColor: Colors.white, primaryColor: Colors.white),
+                              child: ExpansionTile (
+                                title: Text(collegeOfPureANDAppliedSciencesTitle,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 20,
+                                      color: textColor
+                                  ),
+                                ),
+                                children: <Widget> [
+                                  Material(
+                                    color: _currentNAVSelected == 20 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(20);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAppliedBiologyAndBiotechnologyGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: appliedBiologyAndBiotechnologyClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 21 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(21);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyBiochemistryGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: biochemistryClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 22 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(22);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyComputerScienceGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: computerScienceClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 23 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(23);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGeophysicsGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: geophysicsClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 24 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(24);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyIndustrialChemistryGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: industrialChemistryClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 25 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(25);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyIndustrialMathematicsGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: industrialMathematicsClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 26 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(26);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyIndustrialPhysicsGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: industrialPhysicsClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Material(
+                                    color: _currentNAVSelected == 27 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(27);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMicrobiologyGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: microbiologyClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Theme(
+                              data: ThemeData.dark()
+                                  .copyWith(accentColor: Colors.white, primaryColor: Colors.white),
+                              child: ExpansionTile(
+                                title: Text(collegeOfEngineeringTitle,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 20,
+                                      color: textColor
+                                  ),
+                                ),
+                                children: <Widget> [
+                                  Material(
+                                    color: _currentNAVSelected == 14 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                  splashColor: splashColorTwo,
+                                  onTap: () {
+                                    _onSelected(14);
+                                    onIconPressed();
+                                    BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAgriculturalAndBiosystemEngineeringGraduatesClickedEvent);
+                                  },
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: MenuItem(
+                                      icon: MdiIcons.accountGroup,
+                                      title: agriculturalAndBiosystemEngineeringClassTitle,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 2 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(2);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAnimalScienceGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: animalScienceClassTitle,
+                                  Material(
+                                  color: _currentNAVSelected == 15 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                  child: InkWell(
+                                    splashColor: splashColorTwo,
+                                    onTap: () {
+                                      _onSelected(15);
+                                      onIconPressed();
+                                      BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyChemicalEngineeringGraduatesClickedEvent);
+                                    },
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: MenuItem(
+                                        icon: MdiIcons.accountGroup,
+                                        title: chemicalEngineeringClassTitle,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAquacultureAndFisheriesManagementGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: aquacultureAndFisheriesManagementClassTitle,
+                                  Material(
+                                    color: _currentNAVSelected == 16 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(16);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyCivilEngineeringGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: civilEngineeringClassTitle,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyCropScienceAndSoilScienceGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: cropScienceAndSoilScienceClassTitle,
+                                  Material(
+                                    color: _currentNAVSelected == 17 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(17);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyElectricalAndInformationEngineeringGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: electricalAndInformationEngineeringClassTitle,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyFoodScienceAndNutritionGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: foodScienceAndNutritionClassTitle,
+                                  Material(
+                                    color: _currentNAVSelected == 18 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(18);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMechanicalEngineeringGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: mechanicalEngineeringClassTitle,
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
+                                  Material(
+                                    color: _currentNAVSelected == 19 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColorTwo,
+                                      onTap: () {
+                                        _onSelected(19);
+                                        onIconPressed();
+                                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMechatronicsEngineeringGraduatesClickedEvent);
+                                      },
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: MenuItem(
+                                          icon: MdiIcons.accountGroup,
+                                          title: mechatronicsEngineeringClassTitle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ]
                               ),
                             ),
 
                             Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                              color: _currentNAVSelected == 28 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
                                 splashColor: splashColorTwo,
                                 onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAccountingGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: accountingClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyBankingAndFinanceGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: bankingAndFinanceClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyBusinessAdministrationGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: businessAdministrationClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyEconomicsGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: economicsClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyInternationalRelationsGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: internationalRelationsClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMassCommunicationsGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: massCommunicationsClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyPoliticalScienceGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: politicalScienceClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySociologyGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: sociologyClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAgriculturalAndBiosystemEngineeringGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: agriculturalAndBiosystemEngineeringClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyChemicalEngineeringGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: chemicalEngineeringClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyCivilEngineeringGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: civilEngineeringClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyElectricalAndInformationEngineeringGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: electricalAndInformationEngineeringClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMechanicalEngineeringGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: mechanicalEngineeringClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMechatronicsEngineeringGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: mechatronicsEngineeringClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyAppliedBiologyAndBiotechnologyGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: appliedBiologyAndBiotechnologyClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyBiochemistryGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: biochemistryClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyComputerScienceGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: computerScienceClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyGeophysicsGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: geophysicsClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyIndustrialChemistryGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: industrialChemistryClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyIndustrialMathematicsGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: industrialMathematicsClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyIndustrialPhysicsGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: industrialPhysicsClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Material(
-                              color: _currentNAVSelected == 3 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(3);
-                                  onIconPressed();
-                                  BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyMicrobiologyGraduatesClickedEvent);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: MenuItem(
-                                    icon: MdiIcons.accountGroup,
-                                    title: microbiologyClassTitle,
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            Material(
-                              color: _currentNAVSelected == 4 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
-                              child: InkWell(
-                                splashColor: splashColorTwo,
-                                onTap: () {
-                                  _onSelected(4);
+                                  _onSelected(28);
                                   onIconPressed();
                                   BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MySCPCMembersClickedEvent);
                                 },
@@ -782,11 +843,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 5 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                              color: _currentNAVSelected == 29 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
                                 splashColor: splashColorTwo,
                                 onTap: () {
-                                  _onSelected(5);
+                                  _onSelected(29);
                                   onIconPressed();
                                   BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyStudentCouncilMembersClickedEvent);
                                 },
@@ -800,11 +861,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                               ),
                             ),
                             Material(
-                              color: _currentNAVSelected == 5 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
+                              color: _currentNAVSelected == 30 ? containerBackgroundColor.withOpacity(0.3) : materialBackgroundColor,
                               child: InkWell(
                                 splashColor: splashColorTwo,
                                 onTap: () {
-                                  _onSelected(5);
+                                  _onSelected(30);
                                   onIconPressed();
                                   BlocProvider.of<NavigationBloc>(context).add(NavigationEvents.MyManagementBodyClickedEvent);
                                 },
@@ -817,7 +878,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                 ),
                               ),
                             ),
-
 
                             Divider(
                               height: 64,

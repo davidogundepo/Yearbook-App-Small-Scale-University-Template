@@ -4,13 +4,13 @@ import '../../model/CAS/AquacultureAndFisheriesManagement.dart';
 import '../../notifier/CAS_NOTIFIER/aquaculture_and_fisheries_management_graduates_notifier.dart';
 
 getAquacultureAndFisheriesManagement(AquacultureAndFisheriesManagementNotifier aquacultureAndFisheriesManagementNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('AquacultureAndFisheriesManagement').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('AquacultureAndFisheriesManagement').orderBy("name").get();
 
   List<AquacultureAndFisheriesManagement> _aquacultureAndFisheriesManagementList = [];
 
-  snapshot.documents.forEach((document) {
-    AquacultureAndFisheriesManagement aquacultureAndFisheriesManagement = AquacultureAndFisheriesManagement.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    AquacultureAndFisheriesManagement aquacultureAndFisheriesManagement = AquacultureAndFisheriesManagement.fromMap(document.data());
     _aquacultureAndFisheriesManagementList.add(aquacultureAndFisheriesManagement);
   });
 

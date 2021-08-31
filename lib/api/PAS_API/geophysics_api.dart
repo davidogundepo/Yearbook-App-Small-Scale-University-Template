@@ -4,13 +4,13 @@ import '../../model/PAS/Geophysics.dart';
 import '../../notifier/PAS_NOTIFIER/geophysics_graduates_notifier.dart';
 
 getGeophysics(GeophysicsNotifier geophysicsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('Geophysics').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('Geophysics').orderBy("name").get();
 
   List<Geophysics> _geophysicsList = [];
 
-  snapshot.documents.forEach((document) {
-    Geophysics geophysics = Geophysics.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    Geophysics geophysics = Geophysics.fromMap(document.data());
     _geophysicsList.add(geophysics);
   });
 

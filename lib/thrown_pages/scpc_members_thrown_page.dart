@@ -17,11 +17,10 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:provider/provider.dart';
 
 
-
 String universityName = "ABC University";
 String stateName = "Lagos State";
 String countryName = "Nigeria";
-String thrownName = "Agricultural Economics Graduates Class";
+String thrownName = "SCPC Members";
 
 String exitAppStatement = "Exit from App";
 String exitAppTitle = "Come on!";
@@ -31,7 +30,7 @@ String exitAppYes = "I Have To";
 
 
 String whoWeAre = "Who We Are";
-String aboutUniversity = "About $universityName 2020";
+String aboutUniversity = "About $universityName 2021";
 String acronymMeanings = "Acronym Meanings";
 String aboutApp = "About App";
 
@@ -240,7 +239,7 @@ class _MySCPCMembersPageState extends State<MySCPCMembersPage> {
                             backgroundColor: modalBackgroundColor,
                             context: context,
                             builder: (context) => Container(
-                              height: 300,
+                              height: 240,
                               decoration: BoxDecoration(
                                 color: modalColor,
                                 borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),

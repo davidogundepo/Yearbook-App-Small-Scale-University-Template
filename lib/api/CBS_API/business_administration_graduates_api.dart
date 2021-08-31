@@ -4,13 +4,13 @@ import '../../model/CBS/BusinessAdministration.dart';
 import '../../notifier/CBS_NOTIFIER/business_administration_graduates_notifier.dart';
 
 getBusinessAdministration(BusinessAdministrationNotifier businessAdministrationNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('BusinessAdministration').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('BusinessAdministration').orderBy("name").get();
 
   List<BusinessAdministration> _businessAdministrationList = [];
 
-  snapshot.documents.forEach((document) {
-    BusinessAdministration businessAdministration = BusinessAdministration.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    BusinessAdministration businessAdministration = BusinessAdministration.fromMap(document.data());
     _businessAdministrationList.add(businessAdministration);
   });
 

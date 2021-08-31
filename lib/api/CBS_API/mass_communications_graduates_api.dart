@@ -4,13 +4,13 @@ import '../../model/CBS/MassCommunications.dart';
 import '../../notifier/CBS_NOTIFIER/mass_communications_graduates_notifier.dart';
 
 getMassCommunications(MassCommunicationsNotifier massCommunicationsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('MassCommunications').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('MassCommunications').orderBy("name").get();
 
   List<MassCommunications> _massCommunicationsList = [];
 
-  snapshot.documents.forEach((document) {
-    MassCommunications massCommunications = MassCommunications.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    MassCommunications massCommunications = MassCommunications.fromMap(document.data());
     _massCommunicationsList.add(massCommunications);
   });
 

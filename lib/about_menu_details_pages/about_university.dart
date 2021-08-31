@@ -31,10 +31,10 @@ String whyUniversity = "WHY $universityName?".toUpperCase();
 String whyUniversityStatement = "$universityName scheme was created in a bid to reconstruct, reconcile and rebuild the country after the Nigerian Civil war.";
 String staffBody = "$universityName Staff Body all over Nigeria\n\n";
 String staffBodyStatement = "We have 454 Academic Staff in $universityName.";
-String populationChart = "$universityName 2019/2020 Population Chart";
+String populationChart = "$universityName 2020/2021 Population Chart";
 String studentBody = "Students of $universityName\n\n";
 String studentBodyStatement = "We currently have 6,263 students in $universityName.\n36,541 male students and 21,523 female students have graduated from $universityName, since the inception, 12th July 1993.";
-String studentPopulationChart = "$universityName 2019/2020 Student Population Chart";
+String studentPopulationChart = "$universityName 2020/2021 Student Population Chart";
 
 String universityDepartments = "Some Departments $universityName have running B.Sc, M.Sc. and Ph.D programs provided to it's Student Body\n\n";
 String someDepartments1 = "1. Agricultural Economics\n";

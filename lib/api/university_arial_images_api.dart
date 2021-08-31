@@ -4,13 +4,13 @@ import '../model/UniversityArial.dart';
 import '../notifier/university_arial_images_notifier.dart';
 
 getUniversityArial(UniversityArialNotifier universityArialNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('UniversityArial').getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('UniversityArialViews').get();
 
   List<UniversityArial> _universityArialList = [];
 
-  snapshot.documents.forEach((document) {
-    UniversityArial universityArial = UniversityArial.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    UniversityArial universityArial = UniversityArial.fromMap(document.data());
     _universityArialList.add(universityArial);
   });
 

@@ -7,6 +7,23 @@ String acronym = "The following acronyms are used in the apps and their meanings
 String icdat = "ICDAT - I Can Do All Things";
 String scpc = "SCPC - Student Convocation Planning Committee";
 String ttg = "TTG - Towards Total Graduate";
+String agric = "Agric. - Agricultural";
+String eco = "Eco. - Economics";
+String ext = "Ext - Extension";
+String dev = "Dev - Development";
+String bus = "Bus - Business";
+String admin = "Admin - Administration";
+String mgt = "Mgt - Management";
+String sci = "Sci. - Science";
+String interrel = "InterRel. - InternationalRelations";
+String comm = "Comm - Communications";
+String pol = "Pol. - Political";
+String eng = "Eng. - Engineering";
+String elect = "Elect. - Electrical";
+String info = "Info. - Information";
+String bly = "Bly - Biology";
+String bty = "Bty - Biotechnology";
+String ind = "Ind. - Industrial";
 
 String imgAsset = "assets/images/acronym.jpg";
 
@@ -107,6 +124,158 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                 ),
                                 TextSpan(
                                   text: icdat+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: scpc+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ttg+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: agric+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: eco+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ext+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: dev+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: bus+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: admin+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: mgt+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: sci+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: interrel+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: comm+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: pol+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: eng+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: elect+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: info+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: bly+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: bty+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ind+'\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,

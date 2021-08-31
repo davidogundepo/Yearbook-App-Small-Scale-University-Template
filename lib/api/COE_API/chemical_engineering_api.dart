@@ -4,13 +4,13 @@ import '../../model/COE/ChemicalEngineering.dart';
 import '../../notifier/COE_NOTIFIER/chemical_engineering_graduates_notifier.dart';
 
 getChemicalEngineering(ChemicalEngineeringNotifier chemicalEngineeringNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('ChemicalEngineering').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('ChemicalEngineering').orderBy("name").get();
 
   List<ChemicalEngineering> _chemicalEngineeringList = [];
 
-  snapshot.documents.forEach((document) {
-    ChemicalEngineering chemicalEngineering = ChemicalEngineering.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    ChemicalEngineering chemicalEngineering = ChemicalEngineering.fromMap(document.data());
     _chemicalEngineeringList.add(chemicalEngineering);
   });
 

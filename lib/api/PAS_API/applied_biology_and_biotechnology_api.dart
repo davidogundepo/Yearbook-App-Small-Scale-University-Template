@@ -4,13 +4,13 @@ import '../../model/PAS/AppliedBiologyAndBiotechnology.dart';
 import '../../notifier/PAS_NOTIFIER/applied_biology_and_biotechnology_graduates_notifier.dart';
 
 getAppliedBiologyAndBiotechnology(AppliedBiologyAndBiotechnologyNotifier appliedBiologyAndBiotechnologyNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('AppliedBiologyAndBiotechnology').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('AppliedBiologyAndBiotechnology').orderBy("name").get();
 
   List<AppliedBiologyAndBiotechnology> _appliedBiologyAndBiotechnologyList = [];
 
-  snapshot.documents.forEach((document) {
-    AppliedBiologyAndBiotechnology appliedBiologyAndBiotechnology = AppliedBiologyAndBiotechnology.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    AppliedBiologyAndBiotechnology appliedBiologyAndBiotechnology = AppliedBiologyAndBiotechnology.fromMap(document.data());
     _appliedBiologyAndBiotechnologyList.add(appliedBiologyAndBiotechnology);
   });
 

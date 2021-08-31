@@ -4,13 +4,13 @@ import '../../model/PAS/ComputerScience.dart';
 import '../../notifier/PAS_NOTIFIER/computer_science_graduates_notifier.dart';
 
 getComputerScience(ComputerScienceNotifier computerScienceNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('ComputerScience').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('ComputerScience').orderBy("name").get();
 
   List<ComputerScience> _computerScienceList = [];
 
-  snapshot.documents.forEach((document) {
-    ComputerScience computerScience = ComputerScience.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    ComputerScience computerScience = ComputerScience.fromMap(document.data());
     _computerScienceList.add(computerScience);
   });
 

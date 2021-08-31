@@ -4,13 +4,13 @@ import '../../model/COE/MechatronicsEngineering.dart';
 import '../../notifier/COE_NOTIFIER/mechatronics_engineering_graduates_notifier.dart';
 
 getMechatronicsEngineering(MechatronicsEngineeringNotifier mechatronicsEngineeringNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('MechatronicsEngineering').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('MechatronicsEngineering').orderBy("name").get();
 
   List<MechatronicsEngineering> _mechatronicsEngineeringList = [];
 
-  snapshot.documents.forEach((document) {
-    MechatronicsEngineering mechatronicsEngineering = MechatronicsEngineering.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    MechatronicsEngineering mechatronicsEngineering = MechatronicsEngineering.fromMap(document.data());
     _mechatronicsEngineeringList.add(mechatronicsEngineering);
   });
 

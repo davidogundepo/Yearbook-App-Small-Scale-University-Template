@@ -4,13 +4,13 @@ import '../model/StudentCouncilMembers.dart';
 import '../notifier/student_council_members_notifier.dart';
 
 getStudentCouncilMembers(StudentCouncilMembersNotifier studentCouncilMembersNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('StudentCouncilMembers').orderBy("id").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('StudentCouncilMembers').orderBy("id").get();
 
   List<StudentCouncilMembers> _studentCouncilMembersList = [];
 
-  snapshot.documents.forEach((document) {
-    StudentCouncilMembers studentCouncilMembers = StudentCouncilMembers.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    StudentCouncilMembers studentCouncilMembers = StudentCouncilMembers.fromMap(document.data());
     _studentCouncilMembersList.add(studentCouncilMembers);
   });
 

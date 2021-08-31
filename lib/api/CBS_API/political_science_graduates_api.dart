@@ -4,13 +4,13 @@ import '../../model/CBS/PoliticalScience.dart';
 import '../../notifier/CBS_NOTIFIER/political_science_graduates_notifier.dart';
 
 getPoliticalScience(PoliticalScienceNotifier politicalScienceNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('PoliticalScience').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('PoliticalScience').orderBy("name").get();
 
   List<PoliticalScience> _politicalScienceList = [];
 
-  snapshot.documents.forEach((document) {
-    PoliticalScience politicalScience = PoliticalScience.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    PoliticalScience politicalScience = PoliticalScience.fromMap(document.data());
     _politicalScienceList.add(politicalScience);
   });
 

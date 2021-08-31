@@ -4,13 +4,13 @@ import '../../model/CBS/BankingAndFinance.dart';
 import '../../notifier/CBS_NOTIFIER/banking_and_finance_graduates_notifier.dart';
 
 getBankingAndFinance(BankingAndFinanceNotifier bankingAndFinanceNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('BankingAndFinance').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('BankingAndFinance').orderBy("name").get();
 
   List<BankingAndFinance> _bankingAndFinanceList = [];
 
-  snapshot.documents.forEach((document) {
-    BankingAndFinance bankingAndFinance = BankingAndFinance.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    BankingAndFinance bankingAndFinance = BankingAndFinance.fromMap(document.data());
     _bankingAndFinanceList.add(bankingAndFinance);
   });
 

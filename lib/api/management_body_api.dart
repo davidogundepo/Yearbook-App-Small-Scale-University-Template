@@ -4,13 +4,13 @@ import '../model/ManagementBody.dart';
 import '../notifier/management_body_notifier.dart';
 
 getManagementBody(ManagementBodyNotifier managementBodyNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('ManagementBody').orderBy("id").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('ManagementBody').orderBy("id").get();
 
   List<ManagementBody> _managementBodyList = [];
 
-  snapshot.documents.forEach((document) {
-    ManagementBody managementBody = ManagementBody.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    ManagementBody managementBody = ManagementBody.fromMap(document.data());
     _managementBodyList.add(managementBody);
   });
 

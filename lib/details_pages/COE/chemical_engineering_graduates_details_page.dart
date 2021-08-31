@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../notifier/COE_NOTIFIER/chemical_engineering_graduates_notifier.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -22,14 +23,16 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
 String urlLinkedIn = "https://www.linkedin.com/";
+String urlSnapchat = "https://www.snapchat.com/";
+String urlTikTok = "https://www.tiktok.com/";
 
 
 String schoolName = "ABC University";
 String courseDepartmentName = "Economics";
 
 
-String reachDetails = "Reach";
-String autoBioDetails = "AutoBio";
+String reachDetails = "Contacts";
+String autoBioDetails = "AutoBiography";
 
 String callButton = "Call";
 String messageButton = "Send a Message";
@@ -39,15 +42,20 @@ String twitterButton = "My Twitter";
 String instagramButton = "My Instagram";
 String linkedInButton = "My LinkedIn";
 String facebookButton = "My Facebook";
+String snapchatButton = "My Snapchat";
+String tikTokButton = "My TikTok";
 
 String autobiographyTitle = "Autobiography\n";
 String nicknameTitle = "My Nickname\n";
 String bestMomentTitle = "Best Moment in School\n";
 String worstMomentTitle = "Worst Moment in School\n";
 String whyCourseOfStudyTitle = "Why study $courseDepartmentName\n";
-String favouriteCoursesTitle = "Favourite Courses\n";
-String favouriteLocationOnCampusTitle = "Favourite Place on Campus\n";
-String favoriteSportOnCampusTitle = "Favourite Sport on Campus\n";
+String favouriteCourseTitle = "Favourite Course\n";
+String favouriteLocationOnCampusTitle = "Favourite Place to be on Campus\n";
+String favSchoolActivityTitle = "Favourite School Activity\n";
+String scpcExecutiveTitle = "SCPC Executive Position\n";
+String scpcExecutivePositionTitle = "SCPC Executive Position\n";
+String favoriteSportOnCampusTitle = "Favourite Sporting Activity on Campus\n";
 String schoolExecutiveTitle = "Department Executive\n";
 String schoolExecutivePositionTitle = "Department Executive Position\n";
 String whatsNextAfterTitle = "What's next after B.Sc\n";
@@ -124,9 +132,14 @@ var _name;
 var _nickname;
 var _philosophy;
 var _phone;
-var _favouriteCourses;
+var _favouriteCourse;
+var _snapchat;
+var _tikTok;
+var _favSchoolActivity;
 var _schoolExecutive;
 var _schoolExecutivePosition;
+var _scpcExecutive;
+var _scpcExecutivePosition;
 var _favouriteLocationOnCampus;
 var _favoriteSportOnCampus;
 var _twitter;
@@ -374,9 +387,14 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
     _highSchool = chemicalEngineeringNotifier.currentChemicalEngineering.highSchool;
     _highSchoolGraduationYear = chemicalEngineeringNotifier.currentChemicalEngineering.highSchoolGraduationYear;
     _linkedIn = chemicalEngineeringNotifier.currentChemicalEngineering.linkedIn;
-    _favouriteCourses = chemicalEngineeringNotifier.currentChemicalEngineering.favouriteCourses;
+    _favouriteCourse = chemicalEngineeringNotifier.currentChemicalEngineering.favouriteCourse;
     _schoolExecutive = chemicalEngineeringNotifier.currentChemicalEngineering.schoolExecutive;
     _schoolExecutivePosition = chemicalEngineeringNotifier.currentChemicalEngineering.schoolExecutivePosition;
+    _snapchat = chemicalEngineeringNotifier.currentChemicalEngineering.snapchat;
+    _tikTok = chemicalEngineeringNotifier.currentChemicalEngineering.tikTok;
+    _favSchoolActivity = chemicalEngineeringNotifier.currentChemicalEngineering.favSchoolActivity;
+    _scpcExecutive = chemicalEngineeringNotifier.currentChemicalEngineering.scpcExecutive;
+    _scpcExecutivePosition = chemicalEngineeringNotifier.currentChemicalEngineering.scpcExecutivePosition;
     _favouriteLocationOnCampus = chemicalEngineeringNotifier.currentChemicalEngineering.favouriteLocationOnCampus;
     _favoriteSportOnCampus = chemicalEngineeringNotifier.currentChemicalEngineering.favoriteSportOnCampus;
     _originState = chemicalEngineeringNotifier.currentChemicalEngineering.stateOfOrigin;
@@ -744,8 +762,6 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                         else {
                           launchURL(urlInstagram + _instagram);
                         }
-
-                        launchURL(urlInstagram + _instagram);
                       },
                     ),
                   ),
@@ -773,6 +789,132 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
                           launchURL(urlInstagram + _instagram);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_snapchat.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: splashColorTwo,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: buttonColor,
+                      icon: new Icon(
+                        MdiIcons.snapchat,
+                        color: iconTextColor,
+                      ),
+                      label: Text(snapchatButton,
+                          style: GoogleFonts.abel(
+                              color: iconTextColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        if (_snapchat.toString().startsWith('@')) {
+                          var most = _instagram.toString().substring(1);
+                          launchURL(urlSnapchat + most);
+                        }
+                        else {
+                          launchURL(urlSnapchat + _snapchat);
+                        }
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: splashColorTwo,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 2,
+                        color: buttonColor,
+                        icon: new Icon(
+                          MdiIcons.snapchat,
+                          color: iconTextColor,
+                        ),
+                        label: Text(snapchatButton,
+                            style: GoogleFonts.abel(
+                                color: iconTextColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300)),
+                        onPressed: () {
+                          launchURL(urlSnapchat + _snapchat);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_tikTok.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: splashColorTwo,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: buttonColor,
+                      icon: new FaIcon(
+                        FontAwesomeIcons.tiktok,
+                        color: iconTextColorTwo,
+                      ),
+                      label: Text(tikTokButton,
+                          style: GoogleFonts.abel(
+                              color: iconTextColorTwo,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        if (_tikTok.toString().startsWith('@')) {
+                          var most = _tikTok.toString().substring(1);
+                          launchURL(urlTikTok + most);
+                        }
+                        else {
+                          launchURL(urlTikTok + _tikTok);
+                        }
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: splashColorTwo,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 2,
+                        color: buttonColor,
+                        icon: new FaIcon(
+                          FontAwesomeIcons.tiktok,
+                          color: iconTextColorTwo,
+                        ),
+                        label: Text(tikTokButton,
+                            style: GoogleFonts.abel(
+                                color: iconTextColorTwo,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300)),
+                        onPressed: () {
+                          launchURL(urlTikTok + _tikTok);
                         },
                       ),
                     ),
@@ -1351,7 +1493,7 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
           }()),
 
           (() {
-            if (_favouriteCourses.toString().isNotEmpty) {
+            if (_favouriteCourse.toString().isNotEmpty) {
               return Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
@@ -1366,7 +1508,7 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                           TextSpan(
                             children: <TextSpan>[
                               TextSpan(
-                                  text: favouriteCoursesTitle,
+                                  text: favouriteCourseTitle,
                                   style:  GoogleFonts.aBeeZee(
                                     color: textColor,
                                     fontSize: 19,
@@ -1374,7 +1516,7 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                                   )
                               ),
                               TextSpan(
-                                  text: ' '+_favouriteCourses,
+                                  text: ' '+_favouriteCourse,
                                   style: GoogleFonts.trykker(
                                     color: textColor,
                                     fontSize: 19,
@@ -1411,7 +1553,7 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                               TextSpan(
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: favouriteCoursesTitle,
+                                      text: favouriteCourseTitle,
                                       style:  GoogleFonts.aBeeZee(
                                         color: textColor,
                                         fontSize: 19,
@@ -1419,7 +1561,7 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                                       )
                                   ),
                                   TextSpan(
-                                      text: ' '+_favouriteCourses,
+                                      text: ' '+_favouriteCourse,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,
@@ -1606,6 +1748,99 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                                   ),
                                   TextSpan(
                                       text: ' '+_favoriteSportOnCampus,
+                                      style: GoogleFonts.trykker(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      decoration: BoxDecoration(
+                          color: shapeDecorationColor.withAlpha(50),
+                          borderRadius: new BorderRadius.circular(10)
+                      ),
+                    ),
+                  )
+              );
+            }
+          }()),
+
+          (() {
+            if (_favSchoolActivity.toString().isNotEmpty) {
+              return Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColor,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: favSchoolActivityTitle,
+                                  style:  GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: ' '+_favSchoolActivity,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColor.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)
+                  ),
+                ),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Container(
+                      child: Material(
+                        color: materialBackgroundColor,
+                        child: InkWell(
+                          splashColor: splashColor,
+                          onTap: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                            child: Text.rich(
+                              TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: favSchoolActivityTitle,
+                                      style:  GoogleFonts.aBeeZee(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      )
+                                  ),
+                                  TextSpan(
+                                      text: ' '+_favSchoolActivity,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,
@@ -1886,6 +2121,99 @@ class _MyChemicalEngineeringGraduatesDetailsPageState extends State<MyChemicalEn
                                   ),
                                   TextSpan(
                                       text: ' '+_schoolExecutivePosition,
+                                      style: GoogleFonts.trykker(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      decoration: BoxDecoration(
+                          color: shapeDecorationColor.withAlpha(50),
+                          borderRadius: new BorderRadius.circular(10)
+                      ),
+                    ),
+                  )
+              );
+            }
+          }()),
+
+          (() {
+            if (_scpcExecutive.toString() == "Yes") {
+              return Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColor,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: scpcExecutivePositionTitle,
+                                  style:  GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: ' '+_scpcExecutivePosition,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColor.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)
+                  ),
+                ),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Container(
+                      child: Material(
+                        color: materialBackgroundColor,
+                        child: InkWell(
+                          splashColor: splashColor,
+                          onTap: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                            child: Text.rich(
+                              TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: scpcExecutivePositionTitle,
+                                      style:  GoogleFonts.aBeeZee(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      )
+                                  ),
+                                  TextSpan(
+                                      text: ' '+_scpcExecutivePosition,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,

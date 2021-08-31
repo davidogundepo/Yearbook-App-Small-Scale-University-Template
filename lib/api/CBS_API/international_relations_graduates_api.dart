@@ -4,13 +4,13 @@ import '../../model/CBS/InternationalRelations.dart';
 import '../../notifier/CBS_NOTIFIER/international_relations_graduates_notifier.dart';
 
 getInternationalRelations(InternationalRelationsNotifier internationalRelationsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('InternationalRelations').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('InternationalRelations').orderBy("name").get();
 
   List<InternationalRelations> _internationalRelationsList = [];
 
-  snapshot.documents.forEach((document) {
-    InternationalRelations internationalRelations = InternationalRelations.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    InternationalRelations internationalRelations = InternationalRelations.fromMap(document.data());
     _internationalRelationsList.add(internationalRelations);
   });
 

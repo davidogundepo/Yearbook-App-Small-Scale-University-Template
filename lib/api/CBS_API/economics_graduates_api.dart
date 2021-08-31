@@ -4,13 +4,13 @@ import '../../model/CBS/Economics.dart';
 import '../../notifier/CBS_NOTIFIER/economics_graduates_notifier.dart';
 
 getEconomics(EconomicsNotifier economicsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('Economics').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('Economics').orderBy("name").get();
 
   List<Economics> _economicsList = [];
 
-  snapshot.documents.forEach((document) {
-    Economics economics = Economics.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    Economics economics = Economics.fromMap(document.data());
     _economicsList.add(economics);
   });
 
