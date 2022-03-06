@@ -5,7 +5,7 @@ import '../notifier/university_achievement_images_notifier.dart';
 
 getUniversityAchievements(UniversityAchievementsNotifier universityAchievementsNotifier) async{
   QuerySnapshot snapshot = await FirebaseFirestore.instance
-      .collection('UniversityAchievementsImages').get();
+      .collection('UniversityAchievementImages').get();
 
   List<UniversityAchievements> _universityAchievementsList = [];
 

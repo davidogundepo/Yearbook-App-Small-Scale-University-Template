@@ -43,7 +43,7 @@ class MyStudentCouncilMembersSearch extends SearchDelegate {
         primaryColor: appBarBackgroundColor,
         primaryIconTheme: IconThemeData(color: appBarIconColor),
         primaryColorBrightness: Brightness.light,
-        textTheme: TextTheme(title: TextStyle(color: appBarTextColor, fontSize: 25)),
+        textTheme: TextTheme(subtitle1: TextStyle(color: appBarTextColor, fontSize: 25)),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(color: appBarTextColor.withAlpha(60)),
         ),
@@ -215,73 +215,24 @@ class MyStudentCouncilMembersSearch extends SearchDelegate {
                                                       style: GoogleFonts.tenorSans(color: textHighlightColor))
                                                 ]),
                                           ),
-                                          (() {
-                                            if (search[position].cdsExecutive == "Yes") {
-                                              return
-                                                Row(
-                                                  children: <Widget>[
-                                                    SizedBox(width: 10),
-                                                    Icon (
-                                                      MdiIcons.checkboxMarkedCircle,
-                                                      color: iconColor,
-                                                    ),
-                                                  ],
-                                                );
-                                            } else {
-                                              return Visibility(
-                                                visible: !_isVisible,
-                                                child: Icon (
-                                                  MdiIcons.checkboxMarkedCircle,
-                                                  color: iconColor,
-                                                ),
-                                              );
-                                            }
-                                          }()),
+                                          SizedBox(width: 10),
+                                          Icon (
+                                              MdiIcons.checkboxMarkedCircle,
+                                              color: iconColor
+                                          )
                                         ],
                                       ),
                                     ),
-                                    (() {
-                                      if (search[position].twitter.toString().isNotEmpty) {
-                                        if (!search[position].twitter.toString().contains("@")) {
-                                          return Padding(
-                                            padding: const EdgeInsets.only(top: 10),
-                                            child: Text(
-                                                search[position].twitter == search[position].twitter ? '@'+search[position].twitter : search[position].twitter,
-                                                style: GoogleFonts.varela(
-                                                    color: textColorTwo,
-                                                    fontStyle: FontStyle.italic
-                                                )
-                                            ),
-                                          );
-                                        }
-                                        else {
-                                          return Padding(
-                                            padding: const EdgeInsets.only(top: 10),
-                                            child: Text(
-                                                search[position].twitter,
-                                                style: GoogleFonts.varela(
-                                                    color: textColorTwo,
-                                                    fontStyle: FontStyle.italic
-                                                )
-                                            ),
-                                          );
-                                        }
-                                      } else {
-                                        return Visibility(
-                                          visible: !_isVisible,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(top: 10),
-                                            child: Text(
-                                                search[position].twitter == search[position].twitter ? '@'+search[position].twitter : search[position].twitter,
-                                                style: GoogleFonts.varela(
-                                                    color: textColorTwo,
-                                                    fontStyle: FontStyle.italic
-                                                )
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                    }()),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: Text(
+                                          search[position].positionEnforced,
+                                          style: GoogleFonts.varela(
+                                              color: textColor,
+                                              fontStyle: FontStyle.italic
+                                          )
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )

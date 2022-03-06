@@ -28,11 +28,11 @@ class ManagementBody {
     twitter = data['twitter'];
     staffPosition = data['staff_position'];
     qualification = data['qualification'];
-    yearOfAppointment = data['year_of_appointment'];;
-    originState = data['origin_state'];
+    yearOfAppointment = data['year_of_appointment'];
+    originState = data['state_of_origin'];
     hobbies = data['hobbies'];
     philosophy = data['philosophy'];
-    linkedIn = data['linkedin'];
+    linkedIn = data['linkedIn'];
   }
 
 }

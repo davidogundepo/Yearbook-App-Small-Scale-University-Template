@@ -50,116 +50,116 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  runZonedGuarded(() {
+    runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => AgriculturalEconomicsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AgriculturalExtensionAndRuralDevelopmentNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AnimalScienceNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AquacultureAndFisheriesManagementNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CropScienceAndSoilScienceNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FoodScienceAndNutritionNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AccountingNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => BankingAndFinanceNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => BusinessAdministrationNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => EconomicsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => InternationalRelationsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MassCommunicationsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => PoliticalScienceNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SociologyNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AgriculturalAndBiosystemEngineeringNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ChemicalEngineeringNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CivilEngineeringNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ElectricalAndInformationEngineeringNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MechanicalEngineeringNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MechatronicsEngineeringNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AppliedBiologyAndBiotechnologyNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => BiochemistryNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ComputerScienceNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => GeophysicsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => IndustrialChemistryNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => IndustrialMathematicsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => IndustrialPhysicsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => MicrobiologyNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SCPCMembersNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => StudentCouncilMembersNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ManagementBodyNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UniversityAchievementsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UniversityArialNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SideBarNotifier(),
+        ),
 
-  runApp(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => AgriculturalEconomicsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AgriculturalExtensionAndRuralDevelopmentNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AnimalScienceNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AquacultureAndFisheriesManagementNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => CropScienceAndSoilScienceNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => FoodScienceAndNutritionNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AccountingNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => BankingAndFinanceNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => BusinessAdministrationNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => EconomicsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => InternationalRelationsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => MassCommunicationsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => PoliticalScienceNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => SociologyNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AgriculturalAndBiosystemEngineeringNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ChemicalEngineeringNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => CivilEngineeringNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ElectricalAndInformationEngineeringNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => MechanicalEngineeringNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => MechatronicsEngineeringNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AppliedBiologyAndBiotechnologyNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => BiochemistryNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ComputerScienceNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => GeophysicsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => IndustrialChemistryNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => IndustrialMathematicsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => IndustrialPhysicsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => MicrobiologyNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => SCPCMembersNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => StudentCouncilMembersNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => ManagementBodyNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => UniversityAchievementsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => UniversityArialNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => SideBarNotifier(),
-          ),
-
-        ],
-        child: MyApp(),
-      )
+      ],
+      child: MyApp(),
+    ));
+    }, FirebaseCrashlytics.instance.recordError
   );
 }
 

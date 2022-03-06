@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-String schoolName = "ABC University";
+String schoolName = "Landmark University";
 String title = "About App";
-String imageAboutApp = "assets/images/about_app.jpg";
+String imageAboutApp = "assets/images/lu_image_graduation.jpeg";
 String schoolAlmanac = "$schoolName Almanac, 2021";
 String developerWebsite = "https://icdatinnovations.com/";
 

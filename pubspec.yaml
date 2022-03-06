@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.1.0 <3.1.0"
 
 dependencies:
   flutter:
@@ -27,52 +27,63 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
-  url_launcher: ^5.4.1
-  material_design_icons_flutter: 3.4.4895
-  webview_flutter: ^0.3.19+5
-  cached_network_image: ^2.0.0
-  google_fonts: ^0.3.9
-  shared_preferences: ^0.5.7
-  flutter_bloc: ^3.2.0
-  firebase_core: ^0.5.3
-  cloud_firestore: ^0.14.4
-  firebase_auth: 0.18.4+1
-  provider: ^4.3.2+3
+  cupertino_icons: ^1.0.3
+  url_launcher: ^6.0.12
+  material_design_icons_flutter: ^4.0.5955
+  webview_flutter: ^2.0.13
+  cached_network_image: ^3.1.0
+  google_fonts: ^2.1.0
+  shared_preferences: ^2.0.7
+  flutter_bloc: ^7.2.0
+  firebase_core: ^1.6.0
+  cloud_firestore: ^2.5.3
+  firebase_auth: ^3.1.1
+  provider: ^6.0.0
   flutter_swiper: ^1.1.6
-  pie_chart: ^3.1.1
-  shimmer: ^1.1.1
-  confetti: ^0.4.0
-  firebase_crashlytics: ^0.2.4
-  firebase_analytics: ^6.3.0
-  flutter_launcher_icons: ^0.7.5
-  flutter_launcher_name: ^0.0.1
-  device_preview: ^0.4.5
+  pie_chart: ^5.0.0
+  shimmer: ^2.0.0
+  confetti: ^0.5.5
+  firebase_crashlytics: ^2.2.1
+  firebase_analytics: ^8.3.2
+  flutter_launcher_icons: ^0.9.2
+  flutter_app_name: ^0.1.0
   toast: ^0.1.5
-  characters: ^1.0.0
-  font_awesome_flutter: ^8.8.1
+  characters: ^1.1.0
+  font_awesome_flutter: ^9.1.0
+  flutter_icons: ^1.1.0
+  lottie: ^1.1.0
+  animated_splash_screen: ^1.1.0
 
 flutter_native_splash:
   image: assets/images/lmu.png
   color: "FFFFFF"
   android: false
+  ios: true
+  android_gravity: fill
+  ios_content_mode: scaleAspectFill
 
 
 dev_dependencies:
-  flutter_native_splash: ^0.1.9
+  flutter_native_splash: ^1.2.3
   flutter_test:
     sdk: flutter
 
-flutter_launcher_name:
-  name: "Small Scale University Template"
+flutter_app_name:
+  android: true
+  ios: false
+  name: "NG Small Scale University Template"
+
+#
+#flutter_app_name:
+#  name: "NG Secondaryddc Sch ALMANAC Template"
 
 flutter_icons:
   android: true
   ios: true-7
-  image_path: "assets/images/lu_path.png"
+  image_path: "assets/images/lu_logo.jpeg"
 
-dependency_overrides:
-  firebase_core: 0.5.3
+#dependency_overrides:
+#  firebase_core: 0.5.3
 
 
 # For information on the generic Dart part of this file, see the

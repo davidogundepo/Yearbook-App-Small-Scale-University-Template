@@ -27,7 +27,7 @@ String urlSnapchat = "https://www.snapchat.com/";
 String urlTikTok = "https://www.tiktok.com/";
 
 
-String schoolName = "ABC University";
+String schoolName = "Landmark University";
 String courseDepartmentName = "Economics";
 
 
@@ -397,6 +397,7 @@ class _MyAgriculturalExtensionAndRuralDevelopmentGraduatesDetailsPageState exten
     _scpcExecutive = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.scpcExecutive;
     _scpcExecutivePosition = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.scpcExecutivePosition;
     _favoriteSportOnCampus = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.favoriteSportOnCampus;
+    _favouriteLocationOnCampus = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.favouriteLocationOnCampus;
     _originState = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.stateOfOrigin;
     _whatsNext = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.whatsNext;
     _stateResiding = agriculturalExtensionAndRuralDevelopmentNotifier.currentAgriculturalExtensionAndRuralDevelopment.whereYouReside;
@@ -683,7 +684,7 @@ class _MyAgriculturalExtensionAndRuralDevelopmentGraduatesDetailsPageState exten
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.twitterCircle,
+                        MdiIcons.twitter,
                         color: iconTextColorTwo,
                       ),
                       label: Text(twitterButton,
@@ -716,7 +717,7 @@ class _MyAgriculturalExtensionAndRuralDevelopmentGraduatesDetailsPageState exten
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.twitterCircle,
+                          MdiIcons.twitter,
                           color: iconTextColorTwo,
                         ),
                         label: Text(twitterButton,
@@ -810,11 +811,11 @@ class _MyAgriculturalExtensionAndRuralDevelopmentGraduatesDetailsPageState exten
                       color: buttonColor,
                       icon: new Icon(
                         MdiIcons.snapchat,
-                        color: iconTextColor,
+                        color: iconTextColorTwo,
                       ),
                       label: Text(snapchatButton,
                           style: GoogleFonts.abel(
-                              color: iconTextColor,
+                              color: iconTextColorTwo,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -999,7 +1000,7 @@ class _MyAgriculturalExtensionAndRuralDevelopmentGraduatesDetailsPageState exten
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.linkedinBox,
+                        MdiIcons.linkedin,
                         color: iconTextColorTwo,
                       ),
                       label: Text(
@@ -1030,7 +1031,7 @@ class _MyAgriculturalExtensionAndRuralDevelopmentGraduatesDetailsPageState exten
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.linkedinBox,
+                          MdiIcons.linkedin,
                           color: iconTextColorTwo,
                         ),
                         label: Text(

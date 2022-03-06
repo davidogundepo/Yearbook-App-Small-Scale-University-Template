@@ -17,7 +17,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:provider/provider.dart';
 
 
-String universityName = "ABC University";
+String universityName = "Landmark University";
 String stateName = "Lagos State";
 String countryName = "Nigeria";
 String thrownName = "Banking and Finance Class Graduates";
@@ -316,6 +316,7 @@ class _MyBankingAndFinanceGraduatesPageState extends State<MyBankingAndFinanceGr
                                                   color: textColor
                                               ),),
                                             onTap: () {
+                                              Navigator.of(context).pop(false);
                                               navigateToWhoWeArePage(context);
                                             }
                                         ),
@@ -326,7 +327,8 @@ class _MyBankingAndFinanceGraduatesPageState extends State<MyBankingAndFinanceGr
                                                 color: textColor
                                             ),),
                                           onTap: () {
-                                            navigateToAboutUniversityState(context);
+                                              Navigator.of(context).pop(false);
+                                              navigateToAboutUniversityState(context);
                                           },
                                         ),
                                         ListTile(
@@ -336,6 +338,7 @@ class _MyBankingAndFinanceGraduatesPageState extends State<MyBankingAndFinanceGr
                                                   color: textColor
                                               ),),
                                             onTap: () {
+                                              Navigator.of(context).pop(false);
                                               navigateToAcronymsMeaningsPage(context);
                                             }
                                         ),
@@ -346,7 +349,8 @@ class _MyBankingAndFinanceGraduatesPageState extends State<MyBankingAndFinanceGr
                                                 color: textColor
                                             ),),
                                           onTap: () {
-                                            navigateToAboutAppDetailsPage(context);
+                                              Navigator.of(context).pop(false);
+                                              navigateToAboutAppDetailsPage(context);
                                           },
                                         ),
 
@@ -381,7 +385,7 @@ class _MyBankingAndFinanceGraduatesPageState extends State<MyBankingAndFinanceGr
                       heightFactor: 0.6,
                       child: Text(
                           thrownName,
-                          style: GoogleFonts.amaticSC(
+                          style: GoogleFonts.abel(
                               color: appBarTextColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

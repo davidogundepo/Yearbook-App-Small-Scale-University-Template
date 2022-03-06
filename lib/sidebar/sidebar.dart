@@ -15,10 +15,10 @@ import '../bloc_navigation_bloc/navigation_bloc.dart';
 import '../sidebar/menu_item.dart';
 
 
-String schoolName = "ABC University";
+String schoolName = "Landmark University";
 String subtitle = "Graduating Class (Royal Set 2021)";
 
-String collegeOfAgriculturalSciencesTitle = "COAS";
+String collegeOfAgriculturalSciencesTitle = "CAS";
 String agriculturalEconomicsClassTitle = "Agric. Economics Class Graduates";
 String agriculturalExtensionAndRuralDevelopmentClassTitle = "Agric. Ext. and Rural Dev Class Graduates";
 String animalScienceClassTitle = "Animal Science Class Graduates";
@@ -64,27 +64,27 @@ String exitAppSubtitle = "Do you really really want to?";
 String exitAppNo = "Oh No";
 String exitAppYes = "I Have To";
 
-String imgAsset = "assets/images/uni_studs_1.jpg";
+String imgAsset = "assets/images/lu_image_graduation.jpeg";
 
 
-Color gradientColor = Color.fromRGBO(162, 78, 124, 1);
-Color gradientColorTwo = Color.fromRGBO(162, 92, 124, 1);
-Color linearGradientColor = Color.fromRGBO(162, 92, 124, 1);
-Color linearGradientColorTwo = Color.fromRGBO(162, 92, 124, 1);
-Color boxShadowColor = Color.fromRGBO(162, 92, 124, 1);
+Color gradientColor = Color.fromRGBO(21, 93, 54, 1.0);
+Color gradientColorTwo = Color.fromRGBO(21, 93, 54, 1.0);
+Color linearGradientColor = Color.fromRGBO(21, 93, 54, 1.0);
+Color linearGradientColorTwo = Color.fromRGBO(21, 93, 54, 1.0);
+Color boxShadowColor = Color.fromRGBO(21, 93, 54, 1.0);
 Color dividerColor = Colors.white;
 Color materialBackgroundColor = Colors.transparent;
 Color shimmerBaseColor = Colors.white;
-Color shimmerHighlightColor = Color.fromRGBO(162, 30, 124, 1);
+Color shimmerHighlightColor = Color.fromRGBO(17, 52, 33, 1.0);
 Color shapeDecorationTextColor = Colors.white;
-Color shapeDecorationTextColorTwo = Color.fromRGBO(162, 30, 124, 1);
-Color containerBackgroundColor = Color.fromRGBO(162, 30, 124, 1);
-Color containerBackgroundColorTwo = Color.fromRGBO(162, 78, 124, 1);
+Color shapeDecorationTextColorTwo = Color.fromRGBO(17, 52, 33, 1.0);
+Color containerBackgroundColor = Color.fromRGBO(17, 52, 33, 1.0);
+Color containerBackgroundColorTwo = Color.fromRGBO(54, 133, 92, 1.0);
 Color containerIconColor = Colors.white70;
-Color dialogBackgroundColor = Color.fromRGBO(162, 78, 124, 1);
+Color dialogBackgroundColor = Color.fromRGBO(54, 133, 92, 1.0);
 Color dialogTextColor = Colors.white;
-Color splashColor = Color.fromRGBO(162, 92, 124, 1);
-Color splashColorTwo = Color.fromRGBO(162, 30, 124, 1);
+Color splashColor = Color.fromRGBO(21, 93, 54, 1.0);
+Color splashColorTwo = Color.fromRGBO(17, 52, 33, 1.0);
 
 
 class SideBar extends StatefulWidget {

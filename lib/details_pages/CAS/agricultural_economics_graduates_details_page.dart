@@ -27,7 +27,7 @@ String urlSnapchat = "https://www.snapchat.com/";
 String urlTikTok = "https://www.tiktok.com/";
 
 
-String schoolName = "ABC University";
+String schoolName = "Landmark University";
 String courseDepartmentName = "Economics";
 
 
@@ -685,7 +685,7 @@ class _MyAgriculturalEconomicsGraduatesDetailsPageState extends State<MyAgricult
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.twitterCircle,
+                        MdiIcons.twitter,
                         color: iconTextColorTwo,
                       ),
                       label: Text(twitterButton,
@@ -718,7 +718,7 @@ class _MyAgriculturalEconomicsGraduatesDetailsPageState extends State<MyAgricult
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.twitterCircle,
+                          MdiIcons.twitter,
                           color: iconTextColorTwo,
                         ),
                         label: Text(twitterButton,
@@ -812,11 +812,11 @@ class _MyAgriculturalEconomicsGraduatesDetailsPageState extends State<MyAgricult
                       color: buttonColor,
                       icon: new Icon(
                         MdiIcons.snapchat,
-                        color: iconTextColor,
+                        color: iconTextColorTwo,
                       ),
                       label: Text(snapchatButton,
                           style: GoogleFonts.abel(
-                              color: iconTextColor,
+                              color: iconTextColorTwo,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -1001,7 +1001,7 @@ class _MyAgriculturalEconomicsGraduatesDetailsPageState extends State<MyAgricult
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.linkedinBox,
+                        MdiIcons.linkedin,
                         color: iconTextColorTwo,
                       ),
                       label: Text(
@@ -1032,7 +1032,7 @@ class _MyAgriculturalEconomicsGraduatesDetailsPageState extends State<MyAgricult
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.linkedinBox,
+                          MdiIcons.linkedin,
                           color: iconTextColorTwo,
                         ),
                         label: Text(

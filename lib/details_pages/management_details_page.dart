@@ -336,6 +336,7 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
     _originState = managementBodyNotifier.currentManagementBody.originState;
     _email = managementBodyNotifier.currentManagementBody.email;
     _facebook = managementBodyNotifier.currentManagementBody.facebook;
+    _linkedIn = managementBodyNotifier.currentManagementBody.linkedIn;
     _instagram = managementBodyNotifier.currentManagementBody.instagram;
     _name = managementBodyNotifier.currentManagementBody.name;
     _qualification = managementBodyNotifier.currentManagementBody.qualification;
@@ -627,7 +628,7 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                          MdiIcons.twitterCircle, color: iconTextColor),
+                          MdiIcons.twitter, color: iconTextColor),
                       label: Text(twitterButton,
                           style: GoogleFonts.abel(
                               color: iconTextColor,
@@ -660,7 +661,7 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
                         ),
                         elevation: 2,
                         color: buttonColor,
-                        icon: new Icon(MdiIcons.twitterCircle,
+                        icon: new Icon(MdiIcons.twitter,
                             color: iconTextColor),
                         label: Text(twitterButton,
                             style: GoogleFonts.abel(
@@ -757,11 +758,13 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
                       ),
                       elevation: 2,
                       color: buttonColor,
-                      icon: new Icon(MdiIcons.linkedinBox, color: iconTextColor),
+                      icon: new Icon(MdiIcons.linkedin, color: iconTextColor),
                       label: Text(linkedInButton,
                           style: GoogleFonts.abel(
                               color: iconTextColor,
                               fontSize: 18,
+                              decoration: TextDecoration.underline,
+                              decorationStyle: TextDecorationStyle.dashed,
                               fontWeight: FontWeight.w300
                           )
                       ),
@@ -784,7 +787,7 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
                         ),
                         elevation: 2,
                         color: buttonColor,
-                        icon: new Icon(MdiIcons.linkedinBox, color: iconTextColor),
+                        icon: new Icon(MdiIcons.linkedin, color: iconTextColor),
                         label: Text(linkedInButton,
                             style: GoogleFonts.abel(
                                 color: iconTextColor,
@@ -952,40 +955,43 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
 
           (() {
             if (_staffPosition.toString().isNotEmpty) {
-              return Container(
-                child: Material(
-                  color: materialBackgroundColor,
-                  child: InkWell(
-                    splashColor: splashColorThree,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: staffPositionTitle,
-                                style: GoogleFonts.aBeeZee(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: ' ' + _staffPosition,
-                                style: GoogleFonts.trykker(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )),
-                          ],
+              return Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColorThree,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: staffPositionTitle,
+                                  style: GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: ' ' + _staffPosition,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColorTwo.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)),
                 ),
-                decoration: BoxDecoration(
-                    color: shapeDecorationColorTwo.withAlpha(50),
-                    borderRadius: new BorderRadius.circular(10)),
               );
             } else {
               return Visibility(
@@ -1030,40 +1036,43 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
 
           (() {
             if (_qualification.toString().isNotEmpty) {
-              return Container(
-                child: Material(
-                  color: materialBackgroundColor,
-                  child: InkWell(
-                    splashColor: splashColorThree,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: qualificationTitle,
-                                style: GoogleFonts.aBeeZee(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: ' ' + _qualification,
-                                style: GoogleFonts.trykker(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )),
-                          ],
+              return Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColorThree,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: qualificationTitle,
+                                  style: GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: ' ' + _qualification,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColorTwo.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)),
                 ),
-                decoration: BoxDecoration(
-                    color: shapeDecorationColorTwo.withAlpha(50),
-                    borderRadius: new BorderRadius.circular(10)),
               );
             } else {
               return Visibility(
@@ -1108,40 +1117,43 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
 
           (() {
             if (_yearOfAppointment.toString().isNotEmpty) {
-              return Container(
-                child: Material(
-                  color: materialBackgroundColor,
-                  child: InkWell(
-                    splashColor: splashColorThree,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: yearOfAppointmentTitle,
-                                style: GoogleFonts.aBeeZee(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: ' ' + _yearOfAppointment,
-                                style: GoogleFonts.trykker(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )),
-                          ],
+              return Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColorThree,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: yearOfAppointmentTitle,
+                                  style: GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: ' ' + _yearOfAppointment,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColorTwo.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)),
                 ),
-                decoration: BoxDecoration(
-                    color: shapeDecorationColorTwo.withAlpha(50),
-                    borderRadius: new BorderRadius.circular(10)),
               );
             } else {
               return Visibility(
@@ -1186,40 +1198,43 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
 
           (() {
             if (_originState.toString().isNotEmpty) {
-              return Container(
-                child: Material(
-                  color: materialBackgroundColor,
-                  child: InkWell(
-                    splashColor: splashColorThree,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: stateOfOriginTitle,
-                                style: GoogleFonts.aBeeZee(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: ' ' + _originState,
-                                style: GoogleFonts.trykker(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )),
-                          ],
+              return Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColorThree,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: stateOfOriginTitle,
+                                  style: GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: ' ' + _originState,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColorTwo.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)),
                 ),
-                decoration: BoxDecoration(
-                    color: shapeDecorationColorTwo.withAlpha(50),
-                    borderRadius: new BorderRadius.circular(10)),
               );
             } else {
               return Visibility(
@@ -1264,40 +1279,43 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
 
           (() {
             if (_hobbies.toString().isNotEmpty) {
-              return Container(
-                child: Material(
-                  color: materialBackgroundColor,
-                  child: InkWell(
-                    splashColor: splashColorThree,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: hobbiesTitle,
-                                style: GoogleFonts.aBeeZee(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: ' ' + _hobbies,
-                                style: GoogleFonts.trykker(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )),
-                          ],
+              return Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColorThree,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: hobbiesTitle,
+                                  style: GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: ' ' + _hobbies,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColorTwo.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)),
                 ),
-                decoration: BoxDecoration(
-                    color: shapeDecorationColorTwo.withAlpha(50),
-                    borderRadius: new BorderRadius.circular(10)),
               );
             } else {
               return Visibility(
@@ -1342,40 +1360,43 @@ class _MyManagementBodyDetailsPageState extends State<MyManagementBodyDetailsPag
 
           (() {
             if (_philosophy.toString().isNotEmpty) {
-              return Container(
-                child: Material(
-                  color: materialBackgroundColor,
-                  child: InkWell(
-                    splashColor: splashColorThree,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                      child: Text.rich(
-                        TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: philosophyTitle,
-                                style: GoogleFonts.aBeeZee(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: ' ' + _philosophy,
-                                style: GoogleFonts.trykker(
-                                  color: textColor,
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w300,
-                                )),
-                          ],
+              return Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColorThree,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: philosophyTitle,
+                                  style: GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: ' ' + _philosophy,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColorTwo.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)),
                 ),
-                decoration: BoxDecoration(
-                    color: shapeDecorationColorTwo.withAlpha(50),
-                    borderRadius: new BorderRadius.circular(10)),
               );
             } else {
               return Visibility(
