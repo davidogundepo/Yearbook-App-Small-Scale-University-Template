@@ -64,23 +64,21 @@ flutter_native_splash:
 
 
 dev_dependencies:
-  flutter_native_splash: ^1.2.3
+  flutter_native_splash: ^2.1.0
   flutter_test:
     sdk: flutter
 
 flutter_app_name:
   android: true
-  ios: false
-  name: "NG Small Scale University Template"
+  ios: true
+#  name: "NG Small Scale University Template"
+  name: "NG Small Uni"
 
-#
-#flutter_app_name:
-#  name: "NG Secondaryddc Sch ALMANAC Template"
 
 flutter_icons:
   android: true
   ios: true-7
-  image_path: "assets/images/lu_logo.jpeg"
+  image_path: "assets/images/ng_uni_icon.jpeg"
 
 #dependency_overrides:
 #  firebase_core: 0.5.3

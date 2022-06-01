@@ -69,10 +69,10 @@ Color appBarIconColor = Colors.blueGrey;
 Color appBarBackgroundTextColor = Colors.blueGrey;
 Color cardBackgroundColor = Color.fromRGBO(25, 49, 111, 1);
 Color textColor = Color.fromRGBO(25, 49, 111, 1);
-Color cardTextColor = Colors.blueGrey;
+Color cardTextColor = Colors.white70;
 Color materialColor = Colors.transparent;
 Color materialInkWellColor = Colors.blue.withAlpha(80);
-Color materialTextColor = Colors.blueGrey;
+Color materialTextColor = Colors.white70;
 Color containerColor = Colors.blueGrey.withAlpha(50);
 Color containerTextColor = Colors.white.withAlpha(110);
 Color containerColor2 = Colors.blueGrey;
@@ -83,7 +83,7 @@ Color firstCurrentUniversityChartColor = Colors.white.withAlpha(110);
 Color secondCurrentUniversityChartColor = Color.fromRGBO(25, 49, 111, 1);
 Color thirdCurrentUniversityChartColor = Colors.lightBlue;
 Color firstCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(25, 49, 111, 1);
-Color secondCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(184, 186, 181, 1);
+Color secondCurrentAndPastUniversityStudentsChartColor = Colors.white;
 
 class AboutUniversityState extends StatefulWidget {
 
@@ -440,7 +440,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 350,
+                height: 400,
                 decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: new BorderRadius.circular(10)
@@ -552,7 +552,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 340,
+                height: 400,
                 decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: new BorderRadius.circular(10)
@@ -769,6 +769,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: universityArialNotifier.universityArialList.length,
@@ -855,6 +856,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: universityAchievementsNotifier.universityAchievementsList.length,
@@ -970,6 +972,6 @@ List<Color> universityColorList = [
 ];
 
 List<Color> universityStudentColorList = [
+  firstCurrentAndPastUniversityStudentsChartColor,
   secondCurrentAndPastUniversityStudentsChartColor.withAlpha(160),
-  secondCurrentAndPastUniversityStudentsChartColor,
 ];
