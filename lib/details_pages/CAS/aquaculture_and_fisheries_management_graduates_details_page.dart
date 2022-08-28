@@ -2968,12 +2968,12 @@ class _MyAquacultureAndFisheriesManagementGraduatesDetailsPageState extends Stat
             onPressed: () {
               launchURL(urlFacebook);
               Toast.show("Loading up Facebook.com",
-                  context, duration:
-                  Toast.LENGTH_LONG,
-                  gravity:  Toast.BOTTOM,
-                  textColor: cardBackgroundColor,
-                  backgroundColor: backgroundColor,
-                  backgroundRadius: 10
+                  duration:
+                      Toast.lengthLong,
+                      gravity: Toast.bottom,
+                      webTexColor: cardBackgroundColor,
+                      backgroundColor: backgroundColor,
+                      backgroundRadius: 10
               );
             },
             child: Text(facebookProfileSharedPreferencesButton,
@@ -3025,12 +3025,12 @@ class _MyAquacultureAndFisheriesManagementGraduatesDetailsPageState extends Stat
             onPressed: () {
               launchURL(urlLinkedIn);
               Toast.show("Loading up LinkedIn.com",
-                  context, duration:
-                  Toast.LENGTH_LONG,
-                  gravity:  Toast.BOTTOM,
-                  textColor: cardBackgroundColor,
-                  backgroundColor: backgroundColor,
-                  backgroundRadius: 10
+                  duration:
+                      Toast.lengthLong,
+                      gravity: Toast.bottom,
+                      webTexColor: cardBackgroundColor,
+                      backgroundColor: backgroundColor,
+                      backgroundRadius: 10
               );
             },
             child: Text(linkedInProfileSharedPreferencesButton,

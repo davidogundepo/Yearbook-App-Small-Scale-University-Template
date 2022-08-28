@@ -282,7 +282,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child:Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                               icon: MdiIcons.accountGroup,
                                               title: agriculturalEconomicsClassTitle,
                                             ),
@@ -300,7 +300,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: agriculturalExtensionAndRuralDevelopmentClassTitle,
                                         ),
@@ -318,7 +318,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: animalScienceClassTitle,
                                         ),
@@ -336,7 +336,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: aquacultureAndFisheriesManagementClassTitle,
                                         ),
@@ -354,7 +354,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: cropScienceAndSoilScienceClassTitle,
                                         ),
@@ -372,7 +372,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: foodScienceAndNutritionClassTitle,
                                         ),
@@ -405,7 +405,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                     },
                                     child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: MenuItem(
+                                      child: MenuItems(
                                         icon: MdiIcons.accountGroup,
                                         title: accountingClassTitle,
                                       ),
@@ -423,7 +423,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: bankingAndFinanceClassTitle,
                                         ),
@@ -441,7 +441,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: businessAdministrationClassTitle,
                                         ),
@@ -459,7 +459,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: economicsClassTitle,
                                         ),
@@ -477,7 +477,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: internationalRelationsClassTitle,
                                         ),
@@ -495,7 +495,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: massCommunicationsClassTitle,
                                         ),
@@ -513,7 +513,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: politicalScienceClassTitle,
                                         ),
@@ -531,7 +531,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: sociologyClassTitle,
                                         ),
@@ -564,7 +564,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: appliedBiologyAndBiotechnologyClassTitle,
                                         ),
@@ -582,7 +582,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: biochemistryClassTitle,
                                         ),
@@ -600,7 +600,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: computerScienceClassTitle,
                                         ),
@@ -618,7 +618,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: geophysicsClassTitle,
                                         ),
@@ -636,7 +636,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: industrialChemistryClassTitle,
                                         ),
@@ -654,7 +654,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: industrialMathematicsClassTitle,
                                         ),
@@ -672,7 +672,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: industrialPhysicsClassTitle,
                                         ),
@@ -690,7 +690,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: microbiologyClassTitle,
                                         ),
@@ -723,7 +723,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                   },
                                   child: Align(
                                     alignment: Alignment.centerLeft,
-                                    child: MenuItem(
+                                    child: MenuItems(
                                       icon: MdiIcons.accountGroup,
                                       title: agriculturalAndBiosystemEngineeringClassTitle,
                                     ),
@@ -741,7 +741,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                     },
                                     child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: MenuItem(
+                                      child: MenuItems(
                                         icon: MdiIcons.accountGroup,
                                         title: chemicalEngineeringClassTitle,
                                       ),
@@ -759,7 +759,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: civilEngineeringClassTitle,
                                         ),
@@ -777,7 +777,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: electricalAndInformationEngineeringClassTitle,
                                         ),
@@ -795,7 +795,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: mechanicalEngineeringClassTitle,
                                         ),
@@ -813,7 +813,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                       },
                                       child: Align(
                                         alignment: Alignment.centerLeft,
-                                        child: MenuItem(
+                                        child: MenuItems(
                                           icon: MdiIcons.accountGroup,
                                           title: mechatronicsEngineeringClassTitle,
                                         ),
@@ -835,7 +835,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                 },
                                 child: Align(
                                   alignment: Alignment.centerLeft,
-                                  child: MenuItem(
+                                  child: MenuItems(
                                     icon: MdiIcons.accountGroup,
                                     title: scpcMembersTitle,
                                   ),
@@ -853,7 +853,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                 },
                                 child: Align(
                                   alignment: Alignment.centerLeft,
-                                  child: MenuItem(
+                                  child: MenuItems(
                                     icon: MdiIcons.accountGroup,
                                     title: studentCouncilMembersTitle,
                                   ),
@@ -871,7 +871,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                 },
                                 child: Align(
                                   alignment: Alignment.centerLeft,
-                                  child: MenuItem(
+                                  child: MenuItems(
                                     icon: MdiIcons.accountGroup,
                                     title: managementBodyTitle,
                                   ),
@@ -898,7 +898,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
                                   },
                                   child: Align(
                                     alignment: Alignment.center,
-                                    child: MenuItem(
+                                    child: MenuItems(
                                       icon: MdiIcons.logout,
                                       title: exitAppStatement,
                                     ),

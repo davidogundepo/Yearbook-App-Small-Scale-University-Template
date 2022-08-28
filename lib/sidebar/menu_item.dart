@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 Color iconColor = Colors.white70;
 Color textColor = Colors.white;
 
-class MenuItem extends StatelessWidget {
+class MenuItems extends StatelessWidget {
 
   final IconData icon;
   final String title;
   final Function onTap;
 
-  const MenuItem({Key key, this.icon, this.title, this.onTap}) : super(key: key);
+  const MenuItems({Key key, this.icon, this.title, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
