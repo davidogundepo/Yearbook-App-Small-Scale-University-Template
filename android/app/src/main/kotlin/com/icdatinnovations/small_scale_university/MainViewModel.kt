@@ -25,10 +25,10 @@ internal class MainViewModel(context: Context, id: Int, creationParams: Map<Stri
     }
 }
 
-internal class DemoNativeViewFactory : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
-    override fun create(context: Context, id: Int, args: Any?): PlatformView {
+class DemoNativeViewFactory : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
+    override fun create(context: Context?, id: Int, args: Any?): PlatformView {
         val creationParams = args as Map<String?, Any?>?
-        return MainViewModel(context, id, creationParams)
+        return MainViewModel(context!!, id, creationParams)
     }
 }
 
