@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../model/UniversityAchievements.dart';
 
 class UniversityAchievementsNotifier with ChangeNotifier {
   List<UniversityAchievements> _universityAchievementsList = [];
-  UniversityAchievements _currentUniversityAchievements;
+  late UniversityAchievements _currentUniversityAchievements;
 
   UnmodifiableListView<UniversityAchievements> get universityAchievementsList => UnmodifiableListView(_universityAchievementsList);
 
@@ -21,5 +21,4 @@ class UniversityAchievementsNotifier with ChangeNotifier {
     _currentUniversityAchievements = universityAchievements;
     notifyListeners();
   }
-
 }

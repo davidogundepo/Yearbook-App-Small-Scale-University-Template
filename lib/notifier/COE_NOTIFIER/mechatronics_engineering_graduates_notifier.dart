@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/COE/MechatronicsEngineering.dart';
 
 class MechatronicsEngineeringNotifier with ChangeNotifier {
   List<MechatronicsEngineering> _mechatronicsEngineeringList = [];
-  MechatronicsEngineering _currentMechatronicsEngineering;
+  late MechatronicsEngineering _currentMechatronicsEngineering;
 
   UnmodifiableListView<MechatronicsEngineering> get mechatronicsEngineeringList => UnmodifiableListView(_mechatronicsEngineeringList);
 
@@ -21,5 +21,4 @@ class MechatronicsEngineeringNotifier with ChangeNotifier {
     _currentMechatronicsEngineering = mechatronicsEngineering;
     notifyListeners();
   }
-
 }

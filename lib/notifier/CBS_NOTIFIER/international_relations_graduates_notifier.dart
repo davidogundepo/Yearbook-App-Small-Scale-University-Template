@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/InternationalRelations.dart';
 
 class InternationalRelationsNotifier with ChangeNotifier {
   List<InternationalRelations> _internationalRelationsList = [];
-  InternationalRelations _currentInternationalRelations;
+  late InternationalRelations _currentInternationalRelations;
 
   UnmodifiableListView<InternationalRelations> get internationalRelationsList => UnmodifiableListView(_internationalRelationsList);
 
@@ -21,5 +21,4 @@ class InternationalRelationsNotifier with ChangeNotifier {
     _currentInternationalRelations = internationalRelations;
     notifyListeners();
   }
-
 }

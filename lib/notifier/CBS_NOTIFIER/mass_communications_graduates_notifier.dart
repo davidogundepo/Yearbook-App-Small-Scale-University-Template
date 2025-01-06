@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/MassCommunications.dart';
 
 class MassCommunicationsNotifier with ChangeNotifier {
   List<MassCommunications> _massCommunicationsList = [];
-  MassCommunications _currentMassCommunications;
+  late MassCommunications _currentMassCommunications;
 
   UnmodifiableListView<MassCommunications> get massCommunicationsList => UnmodifiableListView(_massCommunicationsList);
 
@@ -21,5 +21,4 @@ class MassCommunicationsNotifier with ChangeNotifier {
     _currentMassCommunications = massCommunications;
     notifyListeners();
   }
-
 }

@@ -1,15 +1,11 @@
 import 'dart:async';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import './notifier/university_achievement_images_notifier.dart';
-import './notifier/university_arial_images_notifier.dart';
-import './notifier/sidebar_notifier.dart';
 import 'package:provider/provider.dart';
+
 import './notifier/CAS_NOTIFIER/agricultural_economics_graduates_notifier.dart';
 import './notifier/CAS_NOTIFIER/agricultural_extension_and_rural_development_graduates_notifier.dart';
 import './notifier/CAS_NOTIFIER/animal_science_graduates_notifier.dart';
@@ -40,12 +36,13 @@ import './notifier/PAS_NOTIFIER/industrial_physics_graduates_notifier.dart';
 import './notifier/PAS_NOTIFIER/microbiology_graduates_notifier.dart';
 import './notifier/management_body_notifier.dart';
 import './notifier/scpc_members_notifier.dart';
+import './notifier/sidebar_notifier.dart';
 import './notifier/student_council_members_notifier.dart';
-
+import './notifier/university_achievement_images_notifier.dart';
+import './notifier/university_arial_images_notifier.dart';
 import './sidebar/sidebar_layout.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
@@ -155,16 +152,13 @@ void main() async {
         ChangeNotifierProvider(
           create: (context) => SideBarNotifier(),
         ),
-
       ],
       child: MyApp(),
     ));
-    }, FirebaseCrashlytics.instance.recordError
-  );
+  }, FirebaseCrashlytics.instance.recordError);
 }
 
 class MyApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     return MyAppState();
@@ -172,7 +166,6 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     super.initState();
@@ -191,7 +184,7 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
-      home: SideBarLayout(),
+      home: SideBarLayout(clubId: 'daviduni'),
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
       ],

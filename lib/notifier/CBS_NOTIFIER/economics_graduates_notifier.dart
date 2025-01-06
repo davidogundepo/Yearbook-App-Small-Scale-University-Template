@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/Economics.dart';
 
 class EconomicsNotifier with ChangeNotifier {
   List<Economics> _economicsList = [];
-  Economics _currentEconomics;
+  late Economics _currentEconomics;
 
   UnmodifiableListView<Economics> get economicsList => UnmodifiableListView(_economicsList);
 
@@ -21,5 +21,4 @@ class EconomicsNotifier with ChangeNotifier {
     _currentEconomics = economics;
     notifyListeners();
   }
-
 }

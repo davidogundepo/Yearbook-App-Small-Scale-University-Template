@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../model/UniversityArial.dart';
 
 class UniversityArialNotifier with ChangeNotifier {
   List<UniversityArial> _universityArialList = [];
-  UniversityArial _currentUniversityArial;
+  late UniversityArial _currentUniversityArial;
 
   UnmodifiableListView<UniversityArial> get universityArialList => UnmodifiableListView(_universityArialList);
 
@@ -21,5 +21,4 @@ class UniversityArialNotifier with ChangeNotifier {
     _currentUniversityArial = universityArial;
     notifyListeners();
   }
-
 }

@@ -1,13 +1,11 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../details_pages/CAS/aquaculture_and_fisheries_management_graduates_details_page.dart';
-import '../../notifier/CAS_NOTIFIER/aquaculture_and_fisheries_management_graduates_notifier.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
+import '../../details_pages/CAS/aquaculture_and_fisheries_management_graduates_details_page.dart';
+import '../../notifier/CAS_NOTIFIER/aquaculture_and_fisheries_management_graduates_notifier.dart';
 
 Color backgroundColor = Color.fromRGBO(247, 164, 64, 1);
 Color appBarTextColor = Colors.white;
@@ -27,36 +25,30 @@ Color textHighlightColor = Colors.white;
 
 var queryTech;
 
-
 class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate {
-
   final List all;
+  final String clubId;
 
   bool _isVisible = true;
 
-  MyAquacultureAndFisheriesManagementGraduatesSearch({@required this.all});
+  MyAquacultureAndFisheriesManagementGraduatesSearch({required this.clubId, required this.all});
 
   @override
   ThemeData appBarTheme(BuildContext context) {
-    assert(context != null);
     final ThemeData theme = ThemeData(
         primaryColor: appBarBackgroundColor,
         primaryIconTheme: IconThemeData(color: appBarIconColor),
-        primaryColorBrightness: Brightness.light,
-        textTheme: TextTheme(subtitle1: TextStyle(color: appBarTextColor, fontSize: 25)),
+        textTheme: TextTheme(titleMedium: TextStyle(color: appBarTextColor, fontSize: 25)),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(color: appBarTextColor.withAlpha(60)),
         ),
-        cursorColor: appBarTextColor
-    );
-    assert(theme != null);
+        textSelectionTheme: TextSelectionThemeData(cursorColor: appBarTextColor));
     return theme;
   }
 
   Future navigateToAquacultureAndFisheriesManagementGraduatesSearchDetailsPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAquacultureAndFisheriesManagementGraduatesDetailsPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAquacultureAndFisheriesManagementGraduatesDetailsPage(clubId: clubId)));
   }
-
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -65,24 +57,19 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
         Visibility(
           visible: true,
           child: IconButton(
-            icon: Visibility(
-                visible: true,
-                child: Icon(MdiIcons.closeCircleOutline)),
+            icon: Visibility(visible: true, child: Icon(MdiIcons.closeCircleOutline)),
             onPressed: () {
               query = '';
             },
           ),
         )
       ];
-    }
-    else {
+    } else {
       return [
         Visibility(
           visible: false,
           child: IconButton(
-            icon: Visibility(
-                visible: false,
-                child: Icon(MdiIcons.closeCircleOutline)),
+            icon: Visibility(visible: false, child: Icon(MdiIcons.closeCircleOutline)),
             onPressed: () {
               query = '';
             },
@@ -113,9 +100,7 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
 
     var search = all.where((graduatesSearch) => graduatesSearch.name.contains(query2)).toList();
 
-    return search == null
-        ? _buildProgressIndicator()
-        : _buildSearchList(search);
+    return search == null ? _buildProgressIndicator() : _buildSearchList(search);
   }
 
   @override
@@ -129,19 +114,14 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
 
     var search;
 
-    if(queryTech.isNotEmpty){
-      search =all.where((graduatesSearch) => graduatesSearch.name.contains(queryTech)).toList();
-
-
-    }else{
+    if (queryTech.isNotEmpty) {
+      search = all.where((graduatesSearch) => graduatesSearch.name.contains(queryTech)).toList();
+    } else {
       search = all;
     }
 
-    return search == null
-        ? _buildProgressIndicator()
-        : _buildSearchList(search);
+    return search == null ? _buildProgressIndicator() : _buildSearchList(search);
   }
-
 
   _buildSearchList(List search) {
     return Scaffold(
@@ -154,8 +134,8 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
               shrinkWrap: true,
               itemCount: search == null ? 0 : search.length,
               itemBuilder: (BuildContext context, int position) {
-
-                AquacultureAndFisheriesManagementNotifier aquacultureAndFisheriesManagementNotifier = Provider.of<AquacultureAndFisheriesManagementNotifier>(context);
+                AquacultureAndFisheriesManagementNotifier aquacultureAndFisheriesManagementNotifier =
+                    Provider.of<AquacultureAndFisheriesManagementNotifier>(context);
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Container(
@@ -163,7 +143,6 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                       borderRadius: BorderRadius.circular(10),
                       color: borderColor.withAlpha(50),
                     ),
-
                     child: Material(
                       color: materialBackgroundColor,
                       child: InkWell(
@@ -172,7 +151,6 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                           aquacultureAndFisheriesManagementNotifier.currentAquacultureAndFisheriesManagement = search[position];
                           navigateToAquacultureAndFisheriesManagementGraduatesSearchDetailsPage(context);
                         },
-
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
@@ -184,13 +162,7 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
                                     image: DecorationImage(
-                                        alignment: Alignment(0, -1),
-                                        image: CachedNetworkImageProvider(
-                                            search[position].image
-                                        ),
-                                        fit: BoxFit.cover
-                                    )
-                                ),
+                                        alignment: Alignment(0, -1), image: CachedNetworkImageProvider(search[position].image), fit: BoxFit.cover)),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 60),
@@ -204,11 +176,7 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                                           RichText(
                                             text: TextSpan(
                                                 text: search[position].name.substring(0, queryTech.length),
-                                                style: GoogleFonts.tenorSans(
-                                                    color: textColor,
-                                                    fontSize: 13.5,
-                                                    fontWeight: FontWeight.w600
-                                                ),
+                                                style: GoogleFonts.tenorSans(color: textColor, fontSize: 13.5, fontWeight: FontWeight.w600),
                                                 children: [
                                                   TextSpan(
                                                       text: search[position].name.substring(queryTech.length),
@@ -217,20 +185,19 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                                           ),
                                           (() {
                                             if (search[position].schoolExecutive == "Yes") {
-                                              return
-                                                Row(
-                                                  children: <Widget>[
-                                                    SizedBox(width: 10),
-                                                    Icon (
-                                                      MdiIcons.checkboxMarkedCircle,
-                                                      color: iconColor,
-                                                    ),
-                                                  ],
-                                                );
+                                              return Row(
+                                                children: <Widget>[
+                                                  SizedBox(width: 10),
+                                                  Icon(
+                                                    MdiIcons.checkboxMarkedCircle,
+                                                    color: iconColor,
+                                                  ),
+                                                ],
+                                              );
                                             } else {
                                               return Visibility(
                                                 visible: !_isVisible,
-                                                child: Icon (
+                                                child: Icon(
                                                   MdiIcons.checkboxMarkedCircle,
                                                   color: iconColor,
                                                 ),
@@ -246,24 +213,16 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                                           return Padding(
                                             padding: const EdgeInsets.only(top: 10),
                                             child: Text(
-                                                search[position].twitter == search[position].twitter ? '@'+search[position].twitter : search[position].twitter,
-                                                style: GoogleFonts.varela(
-                                                    color: textColorTwo,
-                                                    fontStyle: FontStyle.italic
-                                                )
-                                            ),
+                                                search[position].twitter == search[position].twitter
+                                                    ? '@' + search[position].twitter
+                                                    : search[position].twitter,
+                                                style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                                           );
-                                        }
-                                        else {
+                                        } else {
                                           return Padding(
                                             padding: const EdgeInsets.only(top: 10),
-                                            child: Text(
-                                                search[position].twitter,
-                                                style: GoogleFonts.varela(
-                                                    color: textColorTwo,
-                                                    fontStyle: FontStyle.italic
-                                                )
-                                            ),
+                                            child: Text(search[position].twitter,
+                                                style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                                           );
                                         }
                                       } else {
@@ -272,12 +231,10 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                                           child: Padding(
                                             padding: const EdgeInsets.only(top: 10),
                                             child: Text(
-                                                search[position].twitter == search[position].twitter ? '@'+search[position].twitter : search[position].twitter,
-                                                style: GoogleFonts.varela(
-                                                    color: textColorTwo,
-                                                    fontStyle: FontStyle.italic
-                                                )
-                                            ),
+                                                search[position].twitter == search[position].twitter
+                                                    ? '@' + search[position].twitter
+                                                    : search[position].twitter,
+                                                style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                                           ),
                                         );
                                       }
@@ -285,7 +242,6 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                                   ],
                                 ),
                               )
-
                             ],
                           ),
                         ),
@@ -293,8 +249,7 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
                     ),
                   ),
                 );
-              }
-          ),
+              }),
         ),
       ),
     );
@@ -308,4 +263,3 @@ class MyAquacultureAndFisheriesManagementGraduatesSearch extends SearchDelegate 
     );
   }
 }
-

@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/PAS/Geophysics.dart';
 
 class GeophysicsNotifier with ChangeNotifier {
   List<Geophysics> _geophysicsList = [];
-  Geophysics _currentGeophysics;
+  late Geophysics _currentGeophysics;
 
   UnmodifiableListView<Geophysics> get geophysicsList => UnmodifiableListView(_geophysicsList);
 
@@ -21,5 +21,4 @@ class GeophysicsNotifier with ChangeNotifier {
     _currentGeophysics = geophysics;
     notifyListeners();
   }
-
 }

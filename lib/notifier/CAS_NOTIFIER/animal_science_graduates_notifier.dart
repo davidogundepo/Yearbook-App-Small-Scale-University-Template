@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CAS/AnimalScience.dart';
 
 class AnimalScienceNotifier with ChangeNotifier {
   List<AnimalScience> _animalScienceList = [];
-  AnimalScience _currentAnimalScience;
+  late AnimalScience _currentAnimalScience;
 
   UnmodifiableListView<AnimalScience> get animalScienceList => UnmodifiableListView(_animalScienceList);
 
@@ -21,5 +21,4 @@ class AnimalScienceNotifier with ChangeNotifier {
     _currentAnimalScience = animalScience;
     notifyListeners();
   }
-
 }

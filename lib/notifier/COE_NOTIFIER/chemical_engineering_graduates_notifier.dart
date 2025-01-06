@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/COE/ChemicalEngineering.dart';
 
 class ChemicalEngineeringNotifier with ChangeNotifier {
   List<ChemicalEngineering> _chemicalEngineeringList = [];
-  ChemicalEngineering _currentChemicalEngineering;
+  late ChemicalEngineering _currentChemicalEngineering;
 
   UnmodifiableListView<ChemicalEngineering> get chemicalEngineeringList => UnmodifiableListView(_chemicalEngineeringList);
 
@@ -21,5 +21,4 @@ class ChemicalEngineeringNotifier with ChangeNotifier {
     _currentChemicalEngineering = chemicalEngineering;
     notifyListeners();
   }
-
 }

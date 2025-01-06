@@ -1,14 +1,15 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/PAS/AppliedBiologyAndBiotechnology.dart';
 
 class AppliedBiologyAndBiotechnologyNotifier with ChangeNotifier {
   List<AppliedBiologyAndBiotechnology> _appliedBiologyAndBiotechnologyList = [];
-  AppliedBiologyAndBiotechnology _currentAppliedBiologyAndBiotechnology;
+  late AppliedBiologyAndBiotechnology _currentAppliedBiologyAndBiotechnology;
 
-  UnmodifiableListView<AppliedBiologyAndBiotechnology> get appliedBiologyAndBiotechnologyList => UnmodifiableListView(_appliedBiologyAndBiotechnologyList);
+  UnmodifiableListView<AppliedBiologyAndBiotechnology> get appliedBiologyAndBiotechnologyList =>
+      UnmodifiableListView(_appliedBiologyAndBiotechnologyList);
 
   AppliedBiologyAndBiotechnology get currentAppliedBiologyAndBiotechnology => _currentAppliedBiologyAndBiotechnology;
 
@@ -21,5 +22,4 @@ class AppliedBiologyAndBiotechnologyNotifier with ChangeNotifier {
     _currentAppliedBiologyAndBiotechnology = appliedBiologyAndBiotechnology;
     notifyListeners();
   }
-
 }

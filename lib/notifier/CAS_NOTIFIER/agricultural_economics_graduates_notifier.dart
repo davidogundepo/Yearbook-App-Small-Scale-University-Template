@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CAS/AgriculturalEconomics.dart';
 
 class AgriculturalEconomicsNotifier with ChangeNotifier {
   List<AgriculturalEconomics> _agriculturalEconomicsList = [];
-  AgriculturalEconomics _currentAgriculturalEconomics;
+  late AgriculturalEconomics _currentAgriculturalEconomics;
 
   UnmodifiableListView<AgriculturalEconomics> get agriculturalEconomicsList => UnmodifiableListView(_agriculturalEconomicsList);
 
@@ -21,5 +21,4 @@ class AgriculturalEconomicsNotifier with ChangeNotifier {
     _currentAgriculturalEconomics = agriculturalEconomics;
     notifyListeners();
   }
-
 }

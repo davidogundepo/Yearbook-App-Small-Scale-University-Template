@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/BusinessAdministration.dart';
 
 class BusinessAdministrationNotifier with ChangeNotifier {
   List<BusinessAdministration> _businessAdministrationList = [];
-  BusinessAdministration _currentBusinessAdministration;
+  late BusinessAdministration _currentBusinessAdministration;
 
   UnmodifiableListView<BusinessAdministration> get businessAdministrationList => UnmodifiableListView(_businessAdministrationList);
 
@@ -21,5 +21,4 @@ class BusinessAdministrationNotifier with ChangeNotifier {
     _currentBusinessAdministration = businessAdministration;
     notifyListeners();
   }
-
 }

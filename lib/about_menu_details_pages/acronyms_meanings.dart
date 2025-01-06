@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 String universityName = "Landmark University";
@@ -27,7 +26,6 @@ String ind = "Ind. - Industrial";
 
 String imgAsset = "assets/images/acronym.jpg";
 
-
 Color backgroundColor = Color.fromRGBO(58, 31, 41, 1);
 Color appBarTextColor = Colors.white.withAlpha(150);
 Color appBarBackgroundColor = Color.fromRGBO(52, 18, 30, 1);
@@ -36,13 +34,10 @@ Color cardHeadingBackgroundColor = Colors.white.withAlpha(150);
 Color cardHeadingBackgroundTextColor = Color.fromRGBO(58, 31, 41, 1).withAlpha(220);
 Color cardBackgroundTextColor = Colors.white.withAlpha(150);
 
-
 class AcronymsMeanings extends StatefulWidget {
+  AcronymsMeanings({super.key, this.title});
 
-  AcronymsMeanings({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+  final String? title;
 
   @override
   _AcronymsMeaningsState createState() => _AcronymsMeaningsState();
@@ -54,10 +49,10 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
-        title: Text(acronymTitle,
-        style: TextStyle(
-          color: appBarTextColor
-        ),),
+        title: Text(
+          acronymTitle,
+          style: TextStyle(color: appBarTextColor),
+        ),
         centerTitle: true,
         elevation: 10,
         backgroundColor: appBarBackgroundColor,
@@ -93,14 +88,11 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                           color: cardHeadingBackgroundColor,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 15, left: 30, right: 30),
-                            child: Text(acronymTitle,
+                            child: Text(
+                              acronymTitle,
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 25,
-                                  fontStyle: FontStyle.italic,
-                                  color: cardHeadingBackgroundTextColor,
-                                  fontWeight: FontWeight.w700
-                              ),
+                                  fontSize: 25, fontStyle: FontStyle.italic, color: cardHeadingBackgroundTextColor, fontWeight: FontWeight.w700),
                             ),
                           ),
                         ),
@@ -112,10 +104,10 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                         children: <Widget>[
                           RichText(
                             textAlign: TextAlign.justify,
-                            text:TextSpan(
+                            text: TextSpan(
                               children: <TextSpan>[
                                 TextSpan(
-                                  text: acronym+'\n\n\n',
+                                  text: acronym + '\n\n\n',
                                   style: TextStyle(
                                     fontSize: 15,
                                     color: cardBackgroundTextColor,
@@ -123,7 +115,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: icdat+'\n\n',
+                                  text: icdat + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -131,7 +123,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: scpc+'\n\n',
+                                  text: scpc + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -139,7 +131,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ttg+'\n\n',
+                                  text: ttg + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -147,7 +139,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: agric+'\n\n',
+                                  text: agric + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -155,7 +147,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: eco+'\n\n',
+                                  text: eco + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -163,7 +155,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ext+'\n\n',
+                                  text: ext + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -171,7 +163,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: dev+'\n\n',
+                                  text: dev + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -179,7 +171,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: bus+'\n\n',
+                                  text: bus + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -187,7 +179,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: admin+'\n\n',
+                                  text: admin + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -195,7 +187,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: mgt+'\n\n',
+                                  text: mgt + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -203,7 +195,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: sci+'\n\n',
+                                  text: sci + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -211,7 +203,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: interrel+'\n\n',
+                                  text: interrel + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -219,7 +211,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: comm+'\n\n',
+                                  text: comm + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -227,7 +219,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: pol+'\n\n',
+                                  text: pol + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -235,7 +227,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: eng+'\n\n',
+                                  text: eng + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -243,7 +235,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: elect+'\n\n',
+                                  text: elect + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -251,7 +243,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: info+'\n\n',
+                                  text: info + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -259,7 +251,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: bly+'\n\n',
+                                  text: bly + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -267,7 +259,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: bty+'\n\n',
+                                  text: bty + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,
@@ -275,7 +267,7 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: ind+'\n\n',
+                                  text: ind + '\n\n',
                                   style: TextStyle(
                                     fontSize: 13,
                                     color: cardBackgroundTextColor,

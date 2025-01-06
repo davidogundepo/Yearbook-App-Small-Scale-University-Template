@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../model/SCPCMembers.dart';
 
 class SCPCMembersNotifier with ChangeNotifier {
   List<SCPCMembers> _scpcMembersList = [];
-  SCPCMembers _currentSCPCMembers;
+  late SCPCMembers _currentSCPCMembers;
 
   UnmodifiableListView<SCPCMembers> get scpcMembersList => UnmodifiableListView(_scpcMembersList);
 
@@ -21,5 +21,4 @@ class SCPCMembersNotifier with ChangeNotifier {
     _currentSCPCMembers = scpcMembers;
     notifyListeners();
   }
-
 }

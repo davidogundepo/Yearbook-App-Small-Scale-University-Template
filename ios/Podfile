@@ -1,9 +1,8 @@
-# Uncomment this line to define a global platform for your project
-platform :ios, '10.0'
-
-# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+# Specify platform and disable CocoaPods stats
+platform :ios, '15.0'
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
+# Define the project and build configurations
 project 'Runner', {
   'Debug' => :debug,
   'Profile' => :release,
@@ -15,7 +14,6 @@ def flutter_root
   unless File.exist?(generated_xcode_build_settings_path)
     raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
   end
-
   File.foreach(generated_xcode_build_settings_path) do |line|
     matches = line.match(/FLUTTER_ROOT\=(.*)/)
     return matches[1].strip if matches
@@ -24,19 +22,70 @@ def flutter_root
 end
 
 require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
-
 flutter_ios_podfile_setup
+
+def shared_pods
+  # Firebase dependencies with explicit versions
+  pod 'Firebase', '11.4.0'
+  pod 'Firebase/Messaging', '11.4.0'
+
+  # OneSignal dependency
+  pod 'OneSignalXCFramework', '5.2.9'
+end
 
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
-  pod 'lottie-ios'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  shared_pods
+
+  # Additional Firebase pods for main app
+  pod 'Firebase/Core', '11.4.0'
+  pod 'Firebase/Auth', '11.4.0'
+  pod 'Firebase/Analytics', '11.4.0'
+  pod 'Firebase/Crashlytics', '11.4.0'
+  pod 'Firebase/Storage', '11.4.0'
+  pod 'Firebase/Performance', '11.4.0'
+  pod 'Firebase/ABTesting', '11.4.0'
+  pod 'Firebase/RemoteConfig', '11.4.0'
+  pod 'Firebase/Database'
+
+  # Specify Lottie version with minimum iOS deployment target of 15.0
+  pod 'lottie-ios', '4.4.0'
 end
+
+# target 'The GFA ImageNotification' do
+#   use_frameworks!
+#   use_modular_headers!
+#
+#   shared_pods
+# end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+
+    target.build_configurations.each do |config|
+      # Ensure all targets use iOS 15.0 as minimum deployment target
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings['SWIFT_VERSION'] = '5.0'
+
+      # Only set ONLY_ACTIVE_ARCH to YES for Debug configuration
+      if config.debug?
+        config.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+      end
+
+      # Inherit CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER from pods
+      config.build_settings['CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER'] = '$(inherited)'
+
+      # Handle Xcode 15 signing issue
+      xcconfig_path = config.base_configuration_reference.real_path
+      xcconfig = File.read(xcconfig_path)
+      xcconfig_mod = xcconfig.gsub(/DT_TOOLCHAIN_DIR/, "TOOLCHAIN_DIR")
+      File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+    end
   end
 end

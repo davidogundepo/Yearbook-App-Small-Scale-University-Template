@@ -1,16 +1,12 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:confetti/confetti.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '.././notifier/student_council_members_notifier.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:toast/toast.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+import '.././notifier/student_council_members_notifier.dart';
 
 String positionEnforced = "Position Enforced\n";
 String department = "Academic Department\n";
@@ -40,24 +36,25 @@ Color confettiColorTen = Colors.teal;
 Color confettiColorEleven = Colors.indigoAccent;
 Color confettiColorTwelve = Colors.cyan;
 
-
-StudentCouncilMembersNotifier studentCouncilMembersNotifier;
-
+late StudentCouncilMembersNotifier studentCouncilMembersNotifier;
 
 class MyStudentCouncilMembersDetailsPage extends StatefulWidget {
+  final String clubId;
+
+  const MyStudentCouncilMembersDetailsPage({super.key, required this.clubId});
   @override
-  _MyStudentCouncilMembersDetailsPageState createState() => _MyStudentCouncilMembersDetailsPageState();
+  State<MyStudentCouncilMembersDetailsPage> createState() => MyStudentCouncilMembersDetailsPageState();
 }
 
-class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMembersDetailsPage> {
-  ConfettiController _confettiController;
+class MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMembersDetailsPage> {
+  ConfettiController? _confettiController;
 
   @override
   Widget build(BuildContext context) {
     studentCouncilMembersNotifier = Provider.of<StudentCouncilMembersNotifier>(context, listen: true);
 
     return ConfettiWidget(
-      confettiController: _confettiController,
+      confettiController: _confettiController!,
       blastDirectionality: BlastDirectionality.explosive,
       shouldLoop: false,
       colors: [
@@ -88,8 +85,7 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
           elevation: 10,
           backgroundColor: appBarBackgroundColor,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios,
-                color: appBarIconColor),
+            icon: Icon(Icons.arrow_back_ios, color: appBarIconColor),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -109,22 +105,18 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
                       semanticContainer: true,
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                       child: CachedNetworkImage(
-                        imageUrl: studentCouncilMembersNotifier.currentStudentCouncilMembers.image,
+                        imageUrl: studentCouncilMembersNotifier.currentStudentCouncilMembers.image!,
                         fit: BoxFit.cover,
                         alignment: Alignment(0, -1),
-                        placeholder: (context, imageURL) =>
-                        new CircularProgressIndicator(),
-                        errorWidget: (context, url, error) =>
-                        new Icon(MdiIcons.alertRhombus),
-
+                        placeholder: (context, imageURL) => new CircularProgressIndicator(),
+                        errorWidget: (context, url, error) => new Icon(MdiIcons.alertRhombus),
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                   ),
-                  message: studentCouncilMembersNotifier.currentStudentCouncilMembers.name
-              ),
+                  message: studentCouncilMembersNotifier.currentStudentCouncilMembers.name),
               Material(
                 color: materialBackgroundColor,
                 child: InkWell(
@@ -134,33 +126,22 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
                     color: cardBackgroundColor,
                     elevation: 4,
                     shape: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: shapeDecorationColor, width: 4.0, style: BorderStyle.solid
-                      ),
+                      borderSide: BorderSide(color: shapeDecorationColor, width: 4.0, style: BorderStyle.solid),
                     ),
-
                     margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 16.0,
-                          top: 16.0,
-                          right: 16.0,
-                          bottom: 16.0),
-
+                      padding: const EdgeInsets.only(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            Text(studentCouncilMembersNotifier.currentStudentCouncilMembers.name.toUpperCase(),
-                              style: GoogleFonts.blinker(
-                                  color: shapeDecorationTextColor,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.w500
-                              ),
+                            Text(
+                              studentCouncilMembersNotifier.currentStudentCouncilMembers.name!.toUpperCase(),
+                              style: GoogleFonts.blinker(color: shapeDecorationTextColor, fontSize: 30, fontWeight: FontWeight.w500),
                             ),
                             SizedBox(width: 10),
-                            Icon (
+                            Icon(
                               MdiIcons.checkboxMarkedCircle,
                               color: shapeDecorationIconColor,
                             ),
@@ -180,7 +161,6 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 20, left: 8.0, right: 8.0),
                   child: Column(
@@ -205,27 +185,21 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
                                             color: textColor,
                                             fontSize: 19,
                                             fontWeight: FontWeight.bold,
-                                          )
-                                      ),
+                                          )),
                                       TextSpan(
-                                          text: ' '+studentCouncilMembersNotifier.currentStudentCouncilMembers.positionEnforced,
+                                          text: ' ' + studentCouncilMembersNotifier.currentStudentCouncilMembers.positionEnforced!,
                                           style: GoogleFonts.trykker(
                                             color: textColor,
                                             fontSize: 19,
                                             fontWeight: FontWeight.w300,
-                                          )
-                                      ),
+                                          )),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                           ),
-
-                          decoration: BoxDecoration(
-                              color: shapeDecorationColor.withAlpha(120),
-                              borderRadius: new BorderRadius.circular(10)
-                          ),
+                          decoration: BoxDecoration(color: shapeDecorationColor.withAlpha(120), borderRadius: new BorderRadius.circular(10)),
                         ),
                       ),
                       Padding(
@@ -247,27 +221,21 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
                                             color: textColor,
                                             fontSize: 19,
                                             fontWeight: FontWeight.bold,
-                                          )
-                                      ),
+                                          )),
                                       TextSpan(
-                                          text: ' '+studentCouncilMembersNotifier.currentStudentCouncilMembers.department,
+                                          text: ' ' + studentCouncilMembersNotifier.currentStudentCouncilMembers.department!,
                                           style: GoogleFonts.trykker(
                                             color: textColor,
                                             fontSize: 19,
                                             fontWeight: FontWeight.w300,
-                                          )
-                                      ),
+                                          )),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
                           ),
-
-                          decoration: BoxDecoration(
-                              color: shapeDecorationColor.withAlpha(120),
-                              borderRadius: new BorderRadius.circular(10)
-                          ),
+                          decoration: BoxDecoration(color: shapeDecorationColor.withAlpha(120), borderRadius: new BorderRadius.circular(10)),
                         ),
                       ),
                     ],
@@ -282,16 +250,20 @@ class _MyStudentCouncilMembersDetailsPageState extends State<MyStudentCouncilMem
   }
 
   @override
-  void initState() {
-    _confettiController = ConfettiController(duration: const Duration(seconds: 35));
-    _confettiController.play();
+  initState() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
+    _confettiController = ConfettiController(duration: const Duration(seconds: 777));
+    _confettiController!.play();
     super.initState();
   }
 
   @override
   void dispose() {
-    _confettiController.dispose();
+    _confettiController!.dispose();
     super.dispose();
   }
-
 }

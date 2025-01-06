@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/PAS/IndustrialChemistry.dart';
 
 class IndustrialChemistryNotifier with ChangeNotifier {
   List<IndustrialChemistry> _industrialChemistryList = [];
-  IndustrialChemistry _currentIndustrialChemistry;
+  late IndustrialChemistry _currentIndustrialChemistry;
 
   UnmodifiableListView<IndustrialChemistry> get industrialChemistryList => UnmodifiableListView(_industrialChemistryList);
 
@@ -21,5 +21,4 @@ class IndustrialChemistryNotifier with ChangeNotifier {
     _currentIndustrialChemistry = industrialChemistry;
     notifyListeners();
   }
-
 }

@@ -1,14 +1,15 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/COE/ElectricalAndInformationEngineering.dart';
 
 class ElectricalAndInformationEngineeringNotifier with ChangeNotifier {
   List<ElectricalAndInformationEngineering> _electricalAndInformationEngineeringList = [];
-  ElectricalAndInformationEngineering _currentElectricalAndInformationEngineering;
+  late ElectricalAndInformationEngineering _currentElectricalAndInformationEngineering;
 
-  UnmodifiableListView<ElectricalAndInformationEngineering> get electricalAndInformationEngineeringList => UnmodifiableListView(_electricalAndInformationEngineeringList);
+  UnmodifiableListView<ElectricalAndInformationEngineering> get electricalAndInformationEngineeringList =>
+      UnmodifiableListView(_electricalAndInformationEngineeringList);
 
   ElectricalAndInformationEngineering get currentElectricalAndInformationEngineering => _currentElectricalAndInformationEngineering;
 
@@ -21,5 +22,4 @@ class ElectricalAndInformationEngineeringNotifier with ChangeNotifier {
     _currentElectricalAndInformationEngineering = electricalAndInformationEngineering;
     notifyListeners();
   }
-
 }

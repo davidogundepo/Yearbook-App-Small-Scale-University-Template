@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 
 import '../thrown_pages/CAS/agricultural_economics_graduates_thrown_page.dart';
@@ -69,115 +68,114 @@ enum NavigationEvents {
   MyManagementBodyClickedEvent,
   MySCPCMembersClickedEvent,
   MyStudentCouncilMembersClickedEvent,
-
 }
-
 
 abstract class NavigationStates {}
 
-
 class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
+  final String clubId;
 
-  NavigationBloc() : super(MyAgriculturalEconomicsGraduatesPage());
+  NavigationBloc({required this.clubId})
+      : super(MyAgriculturalEconomicsGraduatesPage(
+          clubId: clubId,
+        ));
 
   @override
   Stream<NavigationStates> mapEventToState(NavigationEvents events) async* {
     switch (events) {
       case NavigationEvents.MyAgriculturalEconomicsGraduatesClickedEvent:
-        yield MyAgriculturalEconomicsGraduatesPage();
+        yield MyAgriculturalEconomicsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyAgriculturalExtensionAndRuralDevelopmentGraduatesClickedEvent:
-        yield MyAgriculturalExtensionAndRuralDevelopmentGraduatesPage();
+        yield MyAgriculturalExtensionAndRuralDevelopmentGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyAnimalScienceGraduatesClickedEvent:
-        yield MyAnimalScienceGraduatesPage();
+        yield MyAnimalScienceGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyAquacultureAndFisheriesManagementGraduatesClickedEvent:
-        yield MyAquacultureAndFisheriesManagementGraduatesPage();
+        yield MyAquacultureAndFisheriesManagementGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyCropScienceAndSoilScienceGraduatesClickedEvent:
-        yield MyCropScienceAndSoilScienceGraduatesPage();
+        yield MyCropScienceAndSoilScienceGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyFoodScienceAndNutritionGraduatesClickedEvent:
-        yield MyFoodScienceAndNutritionGraduatesPage();
+        yield MyFoodScienceAndNutritionGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyAccountingGraduatesClickedEvent:
-        yield MyAccountingGraduatesPage();
+        yield MyAccountingGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyBankingAndFinanceGraduatesClickedEvent:
-        yield MyBankingAndFinanceGraduatesPage();
+        yield MyBankingAndFinanceGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyBusinessAdministrationGraduatesClickedEvent:
-        yield MyBusinessAdministrationGraduatesPage();
+        yield MyBusinessAdministrationGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyEconomicsGraduatesClickedEvent:
-        yield MyEconomicsGraduatesPage();
+        yield MyEconomicsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyInternationalRelationsGraduatesClickedEvent:
-        yield MyInternationalRelationsGraduatesPage();
+        yield MyInternationalRelationsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyMassCommunicationsGraduatesClickedEvent:
-        yield MyMassCommunicationsGraduatesPage();
+        yield MyMassCommunicationsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyPoliticalScienceGraduatesClickedEvent:
-        yield MyPoliticalScienceGraduatesPage();
+        yield MyPoliticalScienceGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MySociologyGraduatesClickedEvent:
-        yield MySociologyGraduatesPage();
+        yield MySociologyGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyAgriculturalAndBiosystemEngineeringGraduatesClickedEvent:
-        yield MyAgriculturalAndBiosystemEngineeringGraduatesPage();
+        yield MyAgriculturalAndBiosystemEngineeringGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyChemicalEngineeringGraduatesClickedEvent:
-        yield MyChemicalEngineeringGraduatesPage();
+        yield MyChemicalEngineeringGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyCivilEngineeringGraduatesClickedEvent:
-        yield MyCivilEngineeringGraduatesPage();
+        yield MyCivilEngineeringGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyElectricalAndInformationEngineeringGraduatesClickedEvent:
-        yield MyElectricalAndInformationEngineeringGraduatesPage();
+        yield MyElectricalAndInformationEngineeringGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyMechanicalEngineeringGraduatesClickedEvent:
-        yield MyMechanicalEngineeringGraduatesPage();
+        yield MyMechanicalEngineeringGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyMechatronicsEngineeringGraduatesClickedEvent:
-        yield MyMechatronicsEngineeringGraduatesPage();
+        yield MyMechatronicsEngineeringGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyAppliedBiologyAndBiotechnologyGraduatesClickedEvent:
-        yield MyAppliedBiologyAndBiotechnologyGraduatesPage();
+        yield MyAppliedBiologyAndBiotechnologyGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyBiochemistryGraduatesClickedEvent:
-        yield MyBiochemistryGraduatesPage();
+        yield MyBiochemistryGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyComputerScienceGraduatesClickedEvent:
-        yield MyComputerScienceGraduatesPage();
+        yield MyComputerScienceGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyGeophysicsGraduatesClickedEvent:
-        yield MyGeophysicsGraduatesPage();
+        yield MyGeophysicsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyIndustrialChemistryGraduatesClickedEvent:
-        yield MyIndustrialChemistryGraduatesPage();
+        yield MyIndustrialChemistryGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyIndustrialMathematicsGraduatesClickedEvent:
-        yield MyIndustrialMathematicsGraduatesPage();
+        yield MyIndustrialMathematicsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyIndustrialPhysicsGraduatesClickedEvent:
-        yield MyIndustrialPhysicsGraduatesPage();
+        yield MyIndustrialPhysicsGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyMicrobiologyGraduatesClickedEvent:
-        yield MyMicrobiologyGraduatesPage();
+        yield MyMicrobiologyGraduatesPage(clubId: clubId);
         break;
       case NavigationEvents.MyManagementBodyClickedEvent:
-        yield MyManagementBodyPage();
+        yield MyManagementBodyPage(clubId: clubId);
         break;
       case NavigationEvents.MySCPCMembersClickedEvent:
-        yield MySCPCMembersPage();
+        yield MySCPCMembersPage(clubId: clubId);
         break;
       case NavigationEvents.MyStudentCouncilMembersClickedEvent:
-        yield MyStudentCouncilMembersPage();
+        yield MyStudentCouncilMembersPage(clubId: clubId);
         break;
     }
   }
-
-
 }

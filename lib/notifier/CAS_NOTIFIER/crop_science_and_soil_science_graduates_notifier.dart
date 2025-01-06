@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CAS/CropScienceAndSoilScience.dart';
 
 class CropScienceAndSoilScienceNotifier with ChangeNotifier {
   List<CropScienceAndSoilScience> _cropScienceAndSoilScienceList = [];
-  CropScienceAndSoilScience _currentCropScienceAndSoilScience;
+  late CropScienceAndSoilScience _currentCropScienceAndSoilScience;
 
   UnmodifiableListView<CropScienceAndSoilScience> get cropScienceAndSoilScienceList => UnmodifiableListView(_cropScienceAndSoilScienceList);
 
@@ -21,5 +21,4 @@ class CropScienceAndSoilScienceNotifier with ChangeNotifier {
     _currentCropScienceAndSoilScience = cropScienceAndSoilScience;
     notifyListeners();
   }
-
 }

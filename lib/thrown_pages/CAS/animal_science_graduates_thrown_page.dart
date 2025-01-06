@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
+
 import '../../about_menu_details_pages/about_app.dart';
 import '../../about_menu_details_pages/about_university.dart';
 import '../../about_menu_details_pages/acronyms_meanings.dart';
@@ -12,10 +15,6 @@ import '../../bloc_navigation_bloc/navigation_bloc.dart';
 import '../../details_pages/CAS/animal_science_graduates_details_page.dart';
 import '../../notifier/CAS_NOTIFIER/animal_science_graduates_notifier.dart';
 import '../../thrown_searches/CAS/animal_science_graduates_thrown_search.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:provider/provider.dart';
-
 
 String universityName = "Landmark University";
 String stateName = "Lagos State";
@@ -27,7 +26,6 @@ String exitAppTitle = "Come on!";
 String exitAppSubtitle = "Do you really really want to?";
 String exitAppNo = "Oh No";
 String exitAppYes = "I Have To";
-
 
 String whoWeAre = "Who We Are";
 String aboutUniversity = "About $universityName 2021";
@@ -51,14 +49,16 @@ Color textColorTwo = Colors.white70;
 Color dialogBackgroundColor = Color.fromRGBO(247, 164, 64, 1);
 Color borderColor = Colors.black;
 
+class MyAnimalScienceGraduatesPage extends StatefulWidget implements NavigationStates {
+  final String clubId;
 
-class MyAnimalScienceGraduatesPage extends StatefulWidget with NavigationStates {
+  const MyAnimalScienceGraduatesPage({super.key, required this.clubId});
+
   @override
-  _MyAnimalScienceGraduatesPageState createState() => _MyAnimalScienceGraduatesPageState();
+  State<MyAnimalScienceGraduatesPage> createState() => MyAnimalScienceGraduatesPageState();
 }
 
-class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesPage> {
-
+class MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesPage> {
   bool _isVisible = true;
 
   void showToast() {
@@ -76,7 +76,6 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
           borderRadius: BorderRadius.circular(10),
           color: borderColor.withAlpha(50),
         ),
-
         child: Material(
           color: materialBackgroundColor,
           child: InkWell(
@@ -85,7 +84,6 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
               animalScienceNotifier.currentAnimalScience = animalScienceNotifier.animalScienceList[index];
               navigateToAnimalScienceDetailsPage(context);
             },
-
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -98,12 +96,8 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
                         image: DecorationImage(
                             alignment: Alignment(0, -1),
-                            image: CachedNetworkImageProvider(
-                                animalScienceNotifier.animalScienceList[index].image
-                            ),
-                            fit: BoxFit.cover
-                        )
-                    ),
+                            image: CachedNetworkImageProvider(animalScienceNotifier.animalScienceList[index].image!),
+                            fit: BoxFit.cover)),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 60),
@@ -114,30 +108,23 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
                           padding: const EdgeInsets.only(top: 30),
                           child: Row(
                             children: <Widget>[
-                              Text(
-                                  animalScienceNotifier.animalScienceList[index].name,
-                                  style: GoogleFonts.tenorSans(
-                                      color: textColor,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w600
-                                  )
-                              ),
+                              Text(animalScienceNotifier.animalScienceList[index].name!,
+                                  style: GoogleFonts.tenorSans(color: textColor, fontSize: 17, fontWeight: FontWeight.w600)),
                               (() {
                                 if (animalScienceNotifier.animalScienceList[index].schoolExecutive == "Yes") {
-                                  return
-                                    Row(
-                                      children: <Widget>[
-                                        SizedBox(width: 10),
-                                        Icon (
-                                          MdiIcons.checkboxMarkedCircle,
-                                          color: iconColor,
-                                        ),
-                                      ],
-                                    );
+                                  return Row(
+                                    children: <Widget>[
+                                      SizedBox(width: 10),
+                                      Icon(
+                                        MdiIcons.checkboxMarkedCircle,
+                                        color: iconColor,
+                                      ),
+                                    ],
+                                  );
                                 } else {
                                   return Visibility(
                                     visible: !_isVisible,
-                                    child: Icon (
+                                    child: Icon(
                                       MdiIcons.checkboxMarkedCircle,
                                       color: iconColor,
                                     ),
@@ -148,29 +135,21 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
                           ),
                         ),
                         (() {
-                          if (animalScienceNotifier.animalScienceList[index].twitter.toString().isNotEmpty) {
-                            if (!animalScienceNotifier.animalScienceList[index].twitter.toString().contains("@")) {
+                          if (animalScienceNotifier.animalScienceList[index].twitter!.toString().isNotEmpty) {
+                            if (!animalScienceNotifier.animalScienceList[index].twitter!.toString().contains("@")) {
                               return Padding(
                                 padding: const EdgeInsets.only(top: 10),
                                 child: Text(
-                                    animalScienceNotifier.animalScienceList[index].twitter == animalScienceNotifier.animalScienceList[index].twitter ? '@'+animalScienceNotifier.animalScienceList[index].twitter : animalScienceNotifier.animalScienceList[index].twitter,
-                                    style: GoogleFonts.varela(
-                                        color: textColorTwo,
-                                        fontStyle: FontStyle.italic
-                                    )
-                                ),
+                                    animalScienceNotifier.animalScienceList[index].twitter! == animalScienceNotifier.animalScienceList[index].twitter!
+                                        ? '@' + animalScienceNotifier.animalScienceList[index].twitter!
+                                        : animalScienceNotifier.animalScienceList[index].twitter!,
+                                    style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                               );
-                            }
-                            else {
+                            } else {
                               return Padding(
                                 padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                    animalScienceNotifier.animalScienceList[index].twitter,
-                                    style: GoogleFonts.varela(
-                                        color: textColorTwo,
-                                        fontStyle: FontStyle.italic
-                                    )
-                                ),
+                                child: Text(animalScienceNotifier.animalScienceList[index].twitter!,
+                                    style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                               );
                             }
                           } else {
@@ -178,13 +157,8 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
                               visible: !_isVisible,
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                    animalScienceNotifier.animalScienceList[index].twitter,
-                                    style: GoogleFonts.varela(
-                                        color: textColorTwo,
-                                        fontStyle: FontStyle.italic
-                                    )
-                                ),
+                                child: Text(animalScienceNotifier.animalScienceList[index].twitter!,
+                                    style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                               ),
                             );
                           }
@@ -192,7 +166,6 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
                       ],
                     ),
                   )
-
                 ],
               ),
             ),
@@ -202,81 +175,75 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
     );
   }
 
-  Future<bool> _onWillPop() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-
-        ),
-        backgroundColor: dialogBackgroundColor,
-        title: Text(exitAppTitle,
-          style: TextStyle(
-              color: textColor
-          ),
-        ),
-        content: Text(exitAppSubtitle,
-          style: TextStyle(
-              color: textColor
-          ),
-        ),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(exitAppNo,
-              style: TextStyle(
-                  color: textColor
-              ),
+  Future<bool> _onWillPop() async {
+    return await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-          ),
-          FlatButton(
-            onPressed: () => exit(0),
-            /*Navigator.of(context).pop(true)*/
-            child: Text(exitAppYes,
-              style: TextStyle(
-                  color: textColor
-              ),
+            backgroundColor: dialogBackgroundColor,
+            title: Text(
+              exitAppTitle,
+              style: TextStyle(color: textColor),
             ),
+            content: Text(
+              exitAppSubtitle,
+              style: TextStyle(color: textColor),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(
+                  exitAppNo,
+                  style: TextStyle(color: textColor),
+                ),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                /*Navigator.of(context).pop(true)*/
+                child: Text(
+                  exitAppYes,
+                  style: TextStyle(color: textColor),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    ) ??
+        ) ??
         false;
   }
 
   Future navigateToAnimalScienceDetailsPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAnimalScienceGraduatesDetailsPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAnimalScienceGraduatesDetailsPage(clubId: widget.clubId)));
   }
+
   Future navigateToAboutAppDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppDetails()));
   }
+
   Future navigateToAcronymsMeaningsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => AcronymsMeanings()));
   }
+
   Future navigateToAboutUniversityState(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUniversityState()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUniversityState(clubId: widget.clubId)));
   }
+
   Future navigateToWhoWeArePage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
   }
 
-
   @override
   void initState() {
     AnimalScienceNotifier animalScienceNotifier = Provider.of<AnimalScienceNotifier>(context, listen: false);
-    getAnimalScience(animalScienceNotifier);
-
+    getAnimalScience(animalScienceNotifier, widget.clubId);
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     AnimalScienceNotifier animalScienceNotifier = Provider.of<AnimalScienceNotifier>(context);
-
 
     return WillPopScope(
       onWillPop: _onWillPop,
@@ -284,95 +251,90 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
         body: Container(
           color: backgroundColor,
           child: NestedScrollView(
-            headerSliverBuilder: (BuildContext context,
-                bool innerBoxIsScrolled) {
+            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.formatFloatLeft,
-                          color: appBarIconColor),
+                      icon: Icon(MdiIcons.formatFloatLeft, color: appBarIconColor),
                       onPressed: () async {
                         showModalBottomSheet(
                             backgroundColor: modalBackgroundColor,
                             context: context,
                             builder: (context) => Container(
-                              height: 240,
-                              decoration: BoxDecoration(
-                                color: modalColor,
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-                              ),
-                              child: Material(
-                                color: materialBackgroundColor,
-                                child: InkWell(
-                                  splashColor: splashColor,
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.vertical,
-                                    child: Wrap(
-                                      children: <Widget>[
-                                        ListTile(
-                                            leading: new Icon(MdiIcons.atom, color: iconColor),
-                                            title: new Text(whoWeAre,
-                                              style: GoogleFonts.zillaSlab(
-                                                  color: textColor
-                                              ),),
-                                            onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToWhoWeArePage(context);
-                                            }
+                                  height: 240,
+                                  decoration: BoxDecoration(
+                                    color: modalColor,
+                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                                  ),
+                                  child: Material(
+                                    color: materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColor,
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.vertical,
+                                        child: Wrap(
+                                          children: <Widget>[
+                                            ListTile(
+                                                leading: new Icon(MdiIcons.atom, color: iconColor),
+                                                title: new Text(
+                                                  whoWeAre,
+                                                  style: GoogleFonts.zillaSlab(color: textColor),
+                                                ),
+                                                onTap: () {
+                                                  Navigator.of(context).pop(false);
+                                                  navigateToWhoWeArePage(context);
+                                                }),
+                                            ListTile(
+                                              leading: new Icon(MdiIcons.chessKing, color: iconColor),
+                                              title: new Text(
+                                                aboutUniversity,
+                                                style: GoogleFonts.zillaSlab(color: textColor),
+                                              ),
+                                              onTap: () {
+                                                Navigator.of(context).pop(false);
+                                                navigateToAboutUniversityState(context);
+                                              },
+                                            ),
+                                            ListTile(
+                                                leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
+                                                title: new Text(
+                                                  acronymMeanings,
+                                                  style: GoogleFonts.zillaSlab(color: textColor),
+                                                ),
+                                                onTap: () {
+                                                  Navigator.of(context).pop(false);
+                                                  navigateToAcronymsMeaningsPage(context);
+                                                }),
+                                            ListTile(
+                                              leading: new Icon(MdiIcons.opacity, color: iconColor),
+                                              title: new Text(
+                                                aboutApp,
+                                                style: GoogleFonts.zillaSlab(color: textColor),
+                                              ),
+                                              onTap: () {
+                                                Navigator.of(context).pop(false);
+                                                navigateToAboutAppDetailsPage(context);
+                                              },
+                                            ),
+                                          ],
                                         ),
-                                        ListTile(
-                                          leading: new Icon(MdiIcons.chessKing, color: iconColor),
-                                          title: new Text(aboutUniversity,
-                                            style: GoogleFonts.zillaSlab(
-                                                color: textColor
-                                            ),),
-                                          onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToAboutUniversityState(context);
-                                          },
-                                        ),
-                                        ListTile(
-                                            leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
-                                            title: new Text(acronymMeanings,
-                                              style: GoogleFonts.zillaSlab(
-                                                  color: textColor
-                                              ),),
-                                            onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToAcronymsMeaningsPage(context);
-                                            }
-                                        ),
-                                        ListTile(
-                                          leading: new Icon(MdiIcons.opacity, color: iconColor),
-                                          title: new Text(aboutApp,
-                                            style: GoogleFonts.zillaSlab(
-                                                color: textColor
-                                            ),),
-                                          onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToAboutAppDetailsPage(context);
-                                          },
-                                        ),
-
-                                      ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            ));
+                                ));
                       },
                     ),
                     IconButton(
                       icon: Icon(MdiIcons.magnify, color: iconColor),
                       onPressed: animalScienceNotifier.animalScienceList == null
                           ? null
-                          : (){
-                        showSearch(
-                          context: context,
-                          delegate: MyAnimalScienceGraduatesSearch(all: animalScienceNotifier.animalScienceList),
-                        );
-                      },
+                          : () {
+                              showSearch(
+                                context: context,
+                                delegate: MyAnimalScienceGraduatesSearch(all: animalScienceNotifier.animalScienceList, clubId: widget.clubId),
+                              );
+                            },
                       tooltip: "Search",
                     ),
                   ],
@@ -384,16 +346,10 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
                     centerTitle: true,
                     title: Center(
                       heightFactor: 0.6,
-                      child: Text(
-                          thrownName,
-                          style: GoogleFonts.abel(
-                              color: appBarTextColor,
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.bold
-                          )
-                      ),
+                      child: Text(thrownName, style: GoogleFonts.abel(color: appBarTextColor, fontSize: 26.0, fontWeight: FontWeight.bold)),
                     ),
-                    background: Image.asset(imgAsset,
+                    background: Image.asset(
+                      imgAsset,
                       alignment: Alignment(0, -0.6),
                       fit: BoxFit.cover,
                     ),
@@ -404,14 +360,11 @@ class _MyAnimalScienceGraduatesPageState extends State<MyAnimalScienceGraduatesP
             body: Padding(
               padding: const EdgeInsets.only(left: 25, right: 10),
               child: Container(
-                margin: new EdgeInsets.only( bottom: 15),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
+                margin: new EdgeInsets.only(bottom: 15),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 child: ListView.builder(
                   itemBuilder: _buildProductItem,
                   itemCount: animalScienceNotifier.animalScienceList.length,
-
                 ),
               ),
             ),

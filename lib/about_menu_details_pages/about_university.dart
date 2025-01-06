@@ -1,23 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import '../notifier/university_achievement_images_notifier.dart';
-import '../api/university_achievement_images_api.dart';
-import '../api/university_arial_images_api.dart';
-import '../notifier/university_arial_images_notifier.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../api/university_achievement_images_api.dart';
+import '../api/university_arial_images_api.dart';
+import '../notifier/university_achievement_images_notifier.dart';
+import '../notifier/university_arial_images_notifier.dart';
 
 String universityName = "Landmark University";
 String aboutUniversity = "About $universityName";
 
 String visionSwipe = "Swipe left on 'OUR VISION STATEMENT'  >>>";
 String visionTitle = "OUR VISION STATEMENT";
-String visionStatement = "To develop a sound and result oriented organization that is strongly committed to its set objectives particularly those of national unity and even development. An organization that is well motivated and capable of bringing out the best qualities in our youths and imparting in them the right attitude and values for nation-building. An organization that serves as a catalyst to national development, and a source of pride and fulfillment to its participating graduate youths";
+String visionStatement =
+    "To develop a sound and result oriented organization that is strongly committed to its set objectives particularly those of national unity and even development. An organization that is well motivated and capable of bringing out the best qualities in our youths and imparting in them the right attitude and values for nation-building. An organization that serves as a catalyst to national development, and a source of pride and fulfillment to its participating graduate youths";
 String missionTitle = "OUR MISSION STATEMENT";
-String missionStatement = "To build a pragmatic organization that is committed to its set objectives with the ultimate goal of producing future leadership with positive national ethos-Leadership that is vibrant, proud and committed to the unity and even development of the Nigeria State.\n\nTo be at the fore front of National development efforts, as well as serve as a profitable platform for imparting in our youths values of nationalism, patriotism, loyalty and accountable leadership.\n\nTo raise the moral tone of our youths by giving them opportunity to learn about high ideals of national achievement, social and cultural improvement.\n\nTo develop in our youths attitude of mind acquired through shared experience, and suitable training which would make them more amenable to mobilization in the national interest.\n\nTo ensure Nigerian youths acquire the spirit of self-reliance, a reliable source of economic empowerment and effective participation in nation building.\n\nTo develop an organization that is alive to its responsibilities and responsive to the needs of the country.";
+String missionStatement =
+    "To build a pragmatic organization that is committed to its set objectives with the ultimate goal of producing future leadership with positive national ethos-Leadership that is vibrant, proud and committed to the unity and even development of the Nigeria State.\n\nTo be at the fore front of National development efforts, as well as serve as a profitable platform for imparting in our youths values of nationalism, patriotism, loyalty and accountable leadership.\n\nTo raise the moral tone of our youths by giving them opportunity to learn about high ideals of national achievement, social and cultural improvement.\n\nTo develop in our youths attitude of mind acquired through shared experience, and suitable training which would make them more amenable to mobilization in the national interest.\n\nTo ensure Nigerian youths acquire the spirit of self-reliance, a reliable source of economic empowerment and effective participation in nation building.\n\nTo develop an organization that is alive to its responsibilities and responsive to the needs of the country.";
 
 String coreValues = "OUR CORE VALUES";
 String cvStatement1 = "1. Patriotism\n\n";
@@ -26,14 +29,15 @@ String cvStatement3 = "3. Efficiency\n\n";
 String cvStatement4 = "4. Commitment\n\n";
 String cvStatement5 = "5. Team Work\n\n";
 
-
 String whyUniversity = "WHY $universityName?".toUpperCase();
-String whyUniversityStatement = "$universityName scheme was created in a bid to reconstruct, reconcile and rebuild the country after the Nigerian Civil war.";
+String whyUniversityStatement =
+    "$universityName scheme was created in a bid to reconstruct, reconcile and rebuild the country after the Nigerian Civil war.";
 String staffBody = "$universityName Staff Body all over Nigeria\n\n";
 String staffBodyStatement = "We have 454 Academic Staff in $universityName.";
 String populationChart = "$universityName 2020/2021 Population Chart";
 String studentBody = "Students of $universityName\n\n";
-String studentBodyStatement = "We currently have 6,263 students in $universityName.\n36,541 male students and 21,523 female students have graduated from $universityName, since the inception, 12th July 1993.";
+String studentBodyStatement =
+    "We currently have 6,263 students in $universityName.\n36,541 male students and 21,523 female students have graduated from $universityName, since the inception, 12th July 1993.";
 String studentPopulationChart = "$universityName 2020/2021 Student Population Chart";
 
 String universityDepartments = "Some Departments $universityName have running B.Sc, M.Sc. and Ph.D programs provided to it's Student Body\n\n";
@@ -46,7 +50,6 @@ String someDepartments6 = "6. Industrial Chemistry\n";
 String someDepartments7 = "7. Agricultural Engineering\n";
 String someDepartments8 = "8. Political Science\n";
 String someDepartments9 = "9. Mechanical Engineering\n";
-
 
 String universityArialViewsSwipe = "Swipe left or right for more photos";
 String universityArialViews = "Some Arial views of $universityName activities";
@@ -62,7 +65,6 @@ double currentStaffPopulation = 454;
 double currentAndPastMaleStudentPopulation = 36541;
 double currentAndPastFemaleStudentPopulation = 21523;
 
-
 Color backgroundColor = Color.fromRGBO(25, 59, 111, 1);
 Color appBarBackgroundColor = Color.fromRGBO(25, 49, 111, 1);
 Color appBarIconColor = Colors.blueGrey;
@@ -76,7 +78,7 @@ Color materialTextColor = Colors.white70;
 Color containerColor = Colors.blueGrey.withAlpha(50);
 Color containerTextColor = Colors.white.withAlpha(110);
 Color containerColor2 = Colors.blueGrey;
-Color chartBackgroundColor = Colors.grey[200];
+Color? chartBackgroundColor = Colors.grey[200];
 Color chartTextColor = Colors.white;
 Color chartTextColorTwo = Color.fromRGBO(25, 49, 111, 1);
 Color firstCurrentUniversityChartColor = Colors.white.withAlpha(110);
@@ -86,13 +88,15 @@ Color firstCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(25, 49, 1
 Color secondCurrentAndPastUniversityStudentsChartColor = Colors.white;
 
 class AboutUniversityState extends StatefulWidget {
+  final String clubId;
+
+  AboutUniversityState({super.key, required this.clubId});
 
   @override
   _AboutUniversityState createState() => _AboutUniversityState();
 }
 
 class _AboutUniversityState extends State<AboutUniversityState> {
-
   final controlla = PageController(
     initialPage: 0,
   );
@@ -102,10 +106,10 @@ class _AboutUniversityState extends State<AboutUniversityState> {
   @override
   void initState() {
     UniversityArialNotifier universityArialNotifier = Provider.of<UniversityArialNotifier>(context, listen: false);
-    getUniversityArial(universityArialNotifier);
+    getUniversityArial(universityArialNotifier, widget.clubId);
 
     UniversityAchievementsNotifier universityAchievementsNotifier = Provider.of<UniversityAchievementsNotifier>(context, listen: false);
-    getUniversityAchievements(universityAchievementsNotifier);
+    getUniversityAchievements(universityAchievementsNotifier, widget.clubId);
 
     universityMap.putIfAbsent("Current Male Students", () => 25410);
     universityMap.putIfAbsent("Current Female Students", () => 3753);
@@ -126,10 +130,10 @@ class _AboutUniversityState extends State<AboutUniversityState> {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Text(aboutUniversity,
-        style: TextStyle(
-          color: appBarBackgroundTextColor
-        ),),
+        title: Text(
+          aboutUniversity,
+          style: TextStyle(color: appBarBackgroundTextColor),
+        ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: appBarIconColor),
           onPressed: () {
@@ -146,7 +150,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: Container(
-                child: Material (
+                child: Material(
                   color: materialColor,
                   child: InkWell(
                     splashColor: materialInkWellColor,
@@ -155,22 +159,16 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                       padding: const EdgeInsets.only(top: 5, bottom: 5),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
-                        child: Text(visionSwipe,
+                        child: Text(
+                          visionSwipe,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: containerTextColor,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold
-                          ),
+                          style: TextStyle(color: containerTextColor, fontSize: 19, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(5)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(5)),
               ),
             ),
             Container(
@@ -184,7 +182,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     child: Card(
                       color: cardBackgroundColor,
                       elevation: 4,
-                      margin:   EdgeInsets.all(24),
+                      margin: EdgeInsets.all(24),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
@@ -211,10 +209,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                               child: Text(
                                 visionStatement,
                                 textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                    color: cardTextColor,
-                                    fontSize: 18
-                                ),
+                                style: TextStyle(color: cardTextColor, fontSize: 18),
                               ),
                             ),
                           ],
@@ -226,7 +221,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     child: Card(
                       color: cardBackgroundColor,
                       elevation: 4,
-                      margin:   EdgeInsets.all(24),
+                      margin: EdgeInsets.all(24),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
@@ -253,11 +248,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                               child: Text(
                                 missionStatement,
                                 textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                    color: cardTextColor,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 18
-                                ),
+                                style: TextStyle(color: cardTextColor, fontWeight: FontWeight.w400, fontSize: 18),
                               ),
                             ),
                           ],
@@ -269,7 +260,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     child: Card(
                       color: cardBackgroundColor,
                       elevation: 4,
-                      margin:   EdgeInsets.all(24),
+                      margin: EdgeInsets.all(24),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
@@ -350,7 +341,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     child: Card(
                       color: cardBackgroundColor,
                       elevation: 4,
-                      margin:   EdgeInsets.all(24),
+                      margin: EdgeInsets.all(24),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
                         child: Column(
@@ -377,11 +368,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                               child: Text(
                                 whyUniversityStatement,
                                 textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                    color: cardTextColor,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 16
-                                ),
+                                style: TextStyle(color: cardTextColor, fontWeight: FontWeight.w400, fontSize: 16),
                               ),
                             ),
                           ],
@@ -395,7 +382,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                child: Material (
+                child: Material(
                   color: materialColor,
                   child: InkWell(
                     splashColor: materialInkWellColor,
@@ -406,7 +393,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                         scrollDirection: Axis.vertical,
                         child: RichText(
                           textAlign: TextAlign.justify,
-                          text:TextSpan(
+                          text: TextSpan(
                             children: <TextSpan>[
                               TextSpan(
                                   text: staffBody,
@@ -414,16 +401,14 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: staffBodyStatement,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                             ],
                           ),
                         ),
@@ -431,20 +416,14 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(10)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(10)),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
                 height: 400,
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(10)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(10)),
                 child: Material(
                   color: materialColor,
                   child: InkWell(
@@ -466,7 +445,6 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                                   fontWeight: FontWeight.bold,
                                 )),
                           ),
-
                           PieChart(
                             dataMap: universityMap,
                             animationDuration: Duration(milliseconds: 8000),
@@ -507,7 +485,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                child: Material (
+                child: Material(
                   color: materialColor,
                   child: InkWell(
                     splashColor: materialInkWellColor,
@@ -518,7 +496,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                         scrollDirection: Axis.vertical,
                         child: RichText(
                           textAlign: TextAlign.justify,
-                          text:TextSpan(
+                          text: TextSpan(
                             children: <TextSpan>[
                               TextSpan(
                                   text: studentBody,
@@ -526,16 +504,14 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: studentBodyStatement,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                             ],
                           ),
                         ),
@@ -543,20 +519,14 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(10)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(10)),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
                 height: 400,
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(10)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(10)),
                 child: Material(
                   color: materialColor,
                   child: InkWell(
@@ -615,12 +585,11 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
                 height: 300,
-                child: Material (
+                child: Material(
                   color: materialColor,
                   child: InkWell(
                     splashColor: materialInkWellColor,
@@ -630,7 +599,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                       child: SingleChildScrollView(
                         child: RichText(
                           textAlign: TextAlign.justify,
-                          text:TextSpan(
+                          text: TextSpan(
                             children: <TextSpan>[
                               TextSpan(
                                   text: universityDepartments,
@@ -638,81 +607,70 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments1,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments2,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments3,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments4,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments5,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments6,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments7,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments8,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
+                                  )),
                               TextSpan(
                                   text: someDepartments9,
                                   style: TextStyle(
                                     color: containerTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.w300,
-                                  )
-                              ),
-
+                                  )),
                             ],
                           ),
                         ),
@@ -720,26 +678,20 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(10)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(10)),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, bottom: 10),
-              child: Text(universityArialViews,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: containerTextColor,
-                    fontWeight: FontWeight.w500
-                ),
+              child: Text(
+                universityArialViews,
+                style: TextStyle(fontSize: 20, color: containerTextColor, fontWeight: FontWeight.w500),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
               child: Container(
-                child: Material (
+                child: Material(
                   color: materialColor,
                   child: InkWell(
                     splashColor: materialInkWellColor,
@@ -748,22 +700,16 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                       padding: const EdgeInsets.only(top: 5, bottom: 5),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
-                        child: Text(universityArialViewsSwipe,
+                        child: Text(
+                          universityArialViewsSwipe,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: containerTextColor,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold
-                          ),
+                          style: TextStyle(color: containerTextColor, fontSize: 19, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(5)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(5)),
               ),
             ),
             Container(
@@ -780,24 +726,19 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                           image: DecorationImage(
-                            image: CachedNetworkImageProvider(
-                                universityArialNotifier.universityArialList[index].image
-                            ),
+                            image: CachedNetworkImageProvider(universityArialNotifier.universityArialList[index].image!),
                             fit: BoxFit.cover,
-                          )
-                      ),
+                          )),
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                          color: containerColor2
-                      ),
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)), color: containerColor2),
                       child: ListTile(
                         title: Center(
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Text(
-                              universityArialNotifier.universityArialList[index].toastName,
+                              universityArialNotifier.universityArialList[index].toastName!,
                               style: TextStyle(
                                 color: textColor.withAlpha(190),
                                 fontWeight: FontWeight.w800,
@@ -815,18 +756,15 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, bottom: 10, right: 20),
-              child: Text(universityAchievements,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: containerTextColor,
-                    fontWeight: FontWeight.w500
-                ),
+              child: Text(
+                universityAchievements,
+                style: TextStyle(fontSize: 20, color: containerTextColor, fontWeight: FontWeight.w500),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
               child: Container(
-                child: Material (
+                child: Material(
                   color: materialColor,
                   child: InkWell(
                     splashColor: materialInkWellColor,
@@ -835,22 +773,16 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                       padding: const EdgeInsets.only(top: 5, bottom: 5),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.vertical,
-                        child: Text(universityAchievementsSwipe,
+                        child: Text(
+                          universityAchievementsSwipe,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: containerTextColor,
-                              fontSize: 19,
-                              fontWeight: FontWeight.bold
-                          ),
+                          style: TextStyle(color: containerTextColor, fontSize: 19, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
                   ),
                 ),
-                decoration: BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.circular(5)
-                ),
+                decoration: BoxDecoration(color: containerColor, borderRadius: new BorderRadius.circular(5)),
               ),
             ),
             Container(
@@ -861,48 +793,41 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                 scale: 0.9,
                 itemCount: universityAchievementsNotifier.universityAchievementsList.length,
                 itemBuilder: (context, index) => Column(
-                    children: <Widget>[
-                      Container(
-                        height: 250,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                            image: DecorationImage(
-                              image: CachedNetworkImageProvider(
-                                  universityAchievementsNotifier.universityAchievementsList[index].image
-                              ),
+                  children: <Widget>[
+                    Container(
+                      height: 250,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                          image: DecorationImage(
+                              image: CachedNetworkImageProvider(universityAchievementsNotifier.universityAchievementsList[index].image!),
                               fit: BoxFit.cover,
-                              alignment: Alignment(0, -0.5)
-                            )
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                            color: containerColor2
-                        ),
-                        child: ListTile(
-                          title: Center(
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Text(
-                                universityAchievementsNotifier.universityAchievementsList[index].toastName,
-                                style: TextStyle(
-                                  color: textColor.withAlpha(190),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17.0,
-                                ),
-                                textAlign: TextAlign.center,
+                              alignment: Alignment(0, -0.5))),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)), color: containerColor2),
+                      child: ListTile(
+                        title: Center(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              universityAchievementsNotifier.universityAchievementsList[index].toastName!,
+                              style: TextStyle(
+                                color: textColor.withAlpha(190),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17.0,
                               ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
+                ),
                 itemWidth: 350,
                 layout: SwiperLayout.STACK,
               ),
-
             ),
             Padding(
                 padding: const EdgeInsets.only(left: 20, bottom: 30, right: 20),
@@ -915,13 +840,11 @@ class _AboutUniversityState extends State<AboutUniversityState> {
                         fontWeight: FontWeight.w800,
                         fontStyle: FontStyle.italic,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {
-                        launch(moreInfoAboutUniversityURL);
-                      }
-                  ),
-                )
-            ),
-
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          launch(moreInfoAboutUniversityURL);
+                        }),
+                )),
           ],
         ),
       ),
@@ -929,14 +852,13 @@ class _AboutUniversityState extends State<AboutUniversityState> {
   }
 }
 
-
-class CurrentAndPastUniversityStudentsPopulation{
+class CurrentAndPastUniversityStudentsPopulation {
   String x;
   double y;
-  CurrentAndPastUniversityStudentsPopulation(this.x,this.y);
+  CurrentAndPastUniversityStudentsPopulation(this.x, this.y);
 }
 
-dynamic getCurrentAndPastUniversityStudentsPopulationData(){
+dynamic getCurrentAndPastUniversityStudentsPopulationData() {
   List<CurrentAndPastUniversityStudentsPopulation> currentAndPastUniversityStudentsPopulationData = <CurrentAndPastUniversityStudentsPopulation>[
     CurrentAndPastUniversityStudentsPopulation('Current Male Students & Past Graduates', currentAndPastMaleStudentPopulation),
     CurrentAndPastUniversityStudentsPopulation('Current Female Students & Past Graduates', currentAndPastFemaleStudentPopulation),
@@ -944,13 +866,13 @@ dynamic getCurrentAndPastUniversityStudentsPopulationData(){
   return currentAndPastUniversityStudentsPopulationData;
 }
 
-class CurrentUniversityPopulation{
+class CurrentUniversityPopulation {
   String x;
   double y;
-  CurrentUniversityPopulation(this.x,this.y);
+  CurrentUniversityPopulation(this.x, this.y);
 }
 
-dynamic getCurrentUniversityPopulationData(){
+dynamic getCurrentUniversityPopulationData() {
   List<CurrentUniversityPopulation> currentUniversityPopulationData = <CurrentUniversityPopulation>[
     CurrentUniversityPopulation('Current Male Students', currentMaleStudentPopulation),
     CurrentUniversityPopulation('Current Female Students', currentFemaleStudentPopulation),
@@ -958,7 +880,6 @@ dynamic getCurrentUniversityPopulationData(){
   ];
   return currentUniversityPopulationData;
 }
-
 
 bool toggle = false;
 Map<String, double> universityMap = Map();

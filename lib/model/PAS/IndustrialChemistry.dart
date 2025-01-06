@@ -1,41 +1,41 @@
 class IndustrialChemistry {
+  String? highSchool;
+  String? autoBio;
+  String? bestMoment;
+  String? whyCourseOfStudy;
+  String? dob;
+  String? email;
+  String? facebook;
+  String? highSchoolGraduationYear;
+  String? hobbies;
+  String? id;
+  String? image;
+  String? imageTwo;
+  String? instagram;
+  String? linkedIn;
+  String? myDropline;
+  String? name;
+  String? nickname;
+  String? philosophy;
+  String? phone;
+  String? snapchat;
+  String? tikTok;
+  String? scpcExecutive;
+  String? scpcExecutivePosition;
+  String? favSchoolActivity;
+  String? favouriteCourse;
+  String? schoolExecutive;
+  String? schoolExecutivePosition;
+  String? favouriteLocationOnCampus;
+  String? favoriteSportOnCampus;
+  String? stateOfOrigin;
+  String? twitter;
+  String? whatsNext;
+  String? whereYouReside;
+  String? worstMoment;
+  String? occupation;
 
-  String highSchool;
-  String autoBio;
-  String bestMoment;
-  String whyCourseOfStudy;
-  String dob;
-  String email;
-  String facebook;
-  String highSchoolGraduationYear;
-  String hobbies;
-  String id;
-  String image;
-  String instagram;
-  String linkedIn;
-  String myDropline;
-  String name;
-  String nickname;
-  String philosophy;
-  String phone;
-  String snapchat;
-  String tikTok;
-  String scpcExecutive;
-  String scpcExecutivePosition;
-  String favSchoolActivity;
-  String favouriteCourse;
-  String schoolExecutive;
-  String schoolExecutivePosition;
-  String favouriteLocationOnCampus;
-  String favoriteSportOnCampus;
-  String stateOfOrigin;
-  String twitter;
-  String whatsNext;
-  String whereYouReside;
-  String worstMoment;
-  String occupation;
-
-  IndustrialChemistry.fromMap(Map<String, dynamic> data) {
+  IndustrialChemistry.fromMap(Map<String?, dynamic> data) {
     highSchool = data['high_school'];
     whyCourseOfStudy = data['why_course_of_study'];
     highSchoolGraduationYear = data['high_school_graduation_year'];
@@ -59,6 +59,7 @@ class IndustrialChemistry {
     email = data['email'];
     facebook = data['facebook'];
     image = data['image'];
+    imageTwo = data['image_two'];
     instagram = data['instagram'];
     name = data['name'];
     nickname = data['nickname'];
@@ -71,5 +72,4 @@ class IndustrialChemistry {
     worstMoment = data['worst_moment'];
     occupation = data['occupation'];
   }
-
 }

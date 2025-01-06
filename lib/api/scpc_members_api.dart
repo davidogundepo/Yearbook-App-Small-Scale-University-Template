@@ -1,18 +1,17 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../model/SCPCMembers.dart';
 import '../notifier/scpc_members_notifier.dart';
 
-getSCPCMembers(SCPCMembersNotifier scpcMembersNotifier) async{
-  QuerySnapshot snapshot = await FirebaseFirestore.instance
-      .collection('SCPCMembers').orderBy("id").get();
+Future<void> getSCPCMembers(SCPCMembersNotifier scpcMembersNotifier, String clubId) async {
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('universities').doc(clubId).collection('SCPCMembers').orderBy("id").get();
 
   List<SCPCMembers> _scpcMembersList = [];
 
-  snapshot.docs.forEach((document) {
-    SCPCMembers scpcMembers = SCPCMembers.fromMap(document.data());
+  for (var document in snapshot.docs) {
+    SCPCMembers scpcMembers = SCPCMembers.fromMap(document.data() as Map<String, dynamic>);
     _scpcMembersList.add(scpcMembers);
-  });
+  }
 
   scpcMembersNotifier.scpcMembersList = _scpcMembersList;
 }

@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/BankingAndFinance.dart';
 
 class BankingAndFinanceNotifier with ChangeNotifier {
   List<BankingAndFinance> _bankingAndFinanceList = [];
-  BankingAndFinance _currentBankingAndFinance;
+  late BankingAndFinance _currentBankingAndFinance;
 
   UnmodifiableListView<BankingAndFinance> get bankingAndFinanceList => UnmodifiableListView(_bankingAndFinanceList);
 
@@ -21,5 +21,4 @@ class BankingAndFinanceNotifier with ChangeNotifier {
     _currentBankingAndFinance = bankingAndFinance;
     notifyListeners();
   }
-
 }

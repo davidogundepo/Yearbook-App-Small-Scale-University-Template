@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../model/StudentCouncilMembers.dart';
 
 class StudentCouncilMembersNotifier with ChangeNotifier {
   List<StudentCouncilMembers> _studentCouncilMembersList = [];
-  StudentCouncilMembers _currentStudentCouncilMembers;
+  late StudentCouncilMembers _currentStudentCouncilMembers;
 
   UnmodifiableListView<StudentCouncilMembers> get studentCouncilMembersList => UnmodifiableListView(_studentCouncilMembersList);
 
@@ -21,5 +21,4 @@ class StudentCouncilMembersNotifier with ChangeNotifier {
     _currentStudentCouncilMembers = studentCouncilMembers;
     notifyListeners();
   }
-
 }

@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/PAS/ComputerScience.dart';
 
 class ComputerScienceNotifier with ChangeNotifier {
   List<ComputerScience> _computerScienceList = [];
-  ComputerScience _currentComputerScience;
+  late ComputerScience _currentComputerScience;
 
   UnmodifiableListView<ComputerScience> get computerScienceList => UnmodifiableListView(_computerScienceList);
 
@@ -21,5 +21,4 @@ class ComputerScienceNotifier with ChangeNotifier {
     _currentComputerScience = computerScience;
     notifyListeners();
   }
-
 }

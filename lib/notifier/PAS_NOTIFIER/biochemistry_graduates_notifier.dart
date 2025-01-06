@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/PAS/Biochemistry.dart';
 
 class BiochemistryNotifier with ChangeNotifier {
   List<Biochemistry> _biochemistryList = [];
-  Biochemistry _currentBiochemistry;
+  late Biochemistry _currentBiochemistry;
 
   UnmodifiableListView<Biochemistry> get biochemistryList => UnmodifiableListView(_biochemistryList);
 
@@ -21,5 +21,4 @@ class BiochemistryNotifier with ChangeNotifier {
     _currentBiochemistry = biochemistry;
     notifyListeners();
   }
-
 }

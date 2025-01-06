@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/PAS/Microbiology.dart';
 
 class MicrobiologyNotifier with ChangeNotifier {
   List<Microbiology> _microbiologyList = [];
-  Microbiology _currentMicrobiology;
+  late Microbiology _currentMicrobiology;
 
   UnmodifiableListView<Microbiology> get microbiologyList => UnmodifiableListView(_microbiologyList);
 
@@ -21,5 +21,4 @@ class MicrobiologyNotifier with ChangeNotifier {
     _currentMicrobiology = microbiology;
     notifyListeners();
   }
-
 }

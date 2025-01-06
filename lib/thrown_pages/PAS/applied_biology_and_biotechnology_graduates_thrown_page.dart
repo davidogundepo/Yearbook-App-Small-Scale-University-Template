@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:provider/provider.dart';
+
 import '../../about_menu_details_pages/about_app.dart';
 import '../../about_menu_details_pages/about_university.dart';
 import '../../about_menu_details_pages/acronyms_meanings.dart';
@@ -12,10 +15,6 @@ import '../../bloc_navigation_bloc/navigation_bloc.dart';
 import '../../details_pages/PAS/applied_biology_and_biotechnology_graduates_details_page.dart';
 import '../../notifier/PAS_NOTIFIER/applied_biology_and_biotechnology_graduates_notifier.dart';
 import '../../thrown_searches/PAS/applied_biology_and_biotechnology_graduates_thrown_search.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:provider/provider.dart';
-
 
 String universityName = "Landmark University";
 String stateName = "Lagos State";
@@ -28,14 +27,12 @@ String exitAppSubtitle = "Do you really really want to?";
 String exitAppNo = "Oh No";
 String exitAppYes = "I Have To";
 
-
 String whoWeAre = "Who We Are";
 String aboutUniversity = "About $universityName 2021";
 String acronymMeanings = "Acronym Meanings";
 String aboutApp = "About App";
 
 String imgAsset = "assets/images/uni_studs_2.jpg";
-
 
 Color backgroundColor = Color.fromRGBO(247, 164, 64, 1);
 Color appBarTextColor = Colors.white;
@@ -52,14 +49,16 @@ Color textColorTwo = Colors.white70;
 Color dialogBackgroundColor = Color.fromRGBO(247, 164, 64, 1);
 Color borderColor = Colors.black;
 
+class MyAppliedBiologyAndBiotechnologyGraduatesPage extends StatefulWidget implements NavigationStates {
+  final String clubId;
 
-class MyAppliedBiologyAndBiotechnologyGraduatesPage extends StatefulWidget with NavigationStates {
+  const MyAppliedBiologyAndBiotechnologyGraduatesPage({super.key, required this.clubId});
+
   @override
-  _MyAppliedBiologyAndBiotechnologyGraduatesPageState createState() => _MyAppliedBiologyAndBiotechnologyGraduatesPageState();
+  State<MyAppliedBiologyAndBiotechnologyGraduatesPage> createState() => MyAppliedBiologyAndBiotechnologyGraduatesPageState();
 }
 
-class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyAppliedBiologyAndBiotechnologyGraduatesPage> {
-
+class MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyAppliedBiologyAndBiotechnologyGraduatesPage> {
   bool _isVisible = true;
 
   void showToast() {
@@ -77,16 +76,15 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
           borderRadius: BorderRadius.circular(10),
           color: borderColor.withAlpha(50),
         ),
-
         child: Material(
           color: materialBackgroundColor,
           child: InkWell(
             splashColor: splashColor,
             onTap: () {
-              appliedBiologyAndBiotechnologyNotifier.currentAppliedBiologyAndBiotechnology = appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index];
+              appliedBiologyAndBiotechnologyNotifier.currentAppliedBiologyAndBiotechnology =
+                  appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index];
               navigateToAppliedBiologyAndBiotechnologyDetailsPage(context);
             },
-
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -99,12 +97,9 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(10), bottomLeft: Radius.circular(10)),
                         image: DecorationImage(
                             alignment: Alignment(0, -1),
-                            image: CachedNetworkImageProvider(
-                                appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].image
-                            ),
-                            fit: BoxFit.cover
-                        )
-                    ),
+                            image:
+                                CachedNetworkImageProvider(appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].image!),
+                            fit: BoxFit.cover)),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 60),
@@ -115,30 +110,23 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
                           padding: const EdgeInsets.only(top: 30),
                           child: Row(
                             children: <Widget>[
-                              Text(
-                                  appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].name,
-                                  style: GoogleFonts.tenorSans(
-                                      color: textColor,
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.w600
-                                  )
-                              ),
+                              Text(appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].name!,
+                                  style: GoogleFonts.tenorSans(color: textColor, fontSize: 17, fontWeight: FontWeight.w600)),
                               (() {
                                 if (appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].schoolExecutive == "Yes") {
-                                  return
-                                    Row(
-                                      children: <Widget>[
-                                        SizedBox(width: 10),
-                                        Icon (
-                                          MdiIcons.checkboxMarkedCircle,
-                                          color: iconColor,
-                                        ),
-                                      ],
-                                    );
+                                  return Row(
+                                    children: <Widget>[
+                                      SizedBox(width: 10),
+                                      Icon(
+                                        MdiIcons.checkboxMarkedCircle,
+                                        color: iconColor,
+                                      ),
+                                    ],
+                                  );
                                 } else {
                                   return Visibility(
                                     visible: !_isVisible,
-                                    child: Icon (
+                                    child: Icon(
                                       MdiIcons.checkboxMarkedCircle,
                                       color: iconColor,
                                     ),
@@ -149,29 +137,22 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
                           ),
                         ),
                         (() {
-                          if (appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter.toString().isNotEmpty) {
-                            if (!appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter.toString().contains("@")) {
+                          if (appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!.toString().isNotEmpty) {
+                            if (!appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!.toString().contains("@")) {
                               return Padding(
                                 padding: const EdgeInsets.only(top: 10),
                                 child: Text(
-                                    appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter == appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter ? '@'+appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter : appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter,
-                                    style: GoogleFonts.varela(
-                                        color: textColorTwo,
-                                        fontStyle: FontStyle.italic
-                                    )
-                                ),
+                                    appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter! ==
+                                            appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!
+                                        ? '@' + appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!
+                                        : appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!,
+                                    style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                               );
-                            }
-                            else {
+                            } else {
                               return Padding(
                                 padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                    appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter,
-                                    style: GoogleFonts.varela(
-                                        color: textColorTwo,
-                                        fontStyle: FontStyle.italic
-                                    )
-                                ),
+                                child: Text(appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!,
+                                    style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                               );
                             }
                           } else {
@@ -179,13 +160,8 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
                               visible: !_isVisible,
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 10),
-                                child: Text(
-                                    appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter,
-                                    style: GoogleFonts.varela(
-                                        color: textColorTwo,
-                                        fontStyle: FontStyle.italic
-                                    )
-                                ),
+                                child: Text(appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList[index].twitter!,
+                                    style: GoogleFonts.varela(color: textColorTwo, fontStyle: FontStyle.italic)),
                               ),
                             );
                           }
@@ -193,7 +169,6 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
                       ],
                     ),
                   )
-
                 ],
               ),
             ),
@@ -203,80 +178,76 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
     );
   }
 
-  Future<bool> _onWillPop() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-
-        ),
-        backgroundColor: dialogBackgroundColor,
-        title: Text(exitAppTitle,
-          style: TextStyle(
-              color: textColor
-          ),
-        ),
-        content: Text(exitAppSubtitle,
-          style: TextStyle(
-              color: textColor
-          ),
-        ),
-        actions: <Widget>[
-          FlatButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(exitAppNo,
-              style: TextStyle(
-                  color: textColor
-              ),
+  Future<bool> _onWillPop() async {
+    return await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-          ),
-          FlatButton(
-            onPressed: () => exit(0),
-            /*Navigator.of(context).pop(true)*/
-            child: Text(exitAppYes,
-              style: TextStyle(
-                  color: textColor
-              ),
+            backgroundColor: dialogBackgroundColor,
+            title: Text(
+              exitAppTitle,
+              style: TextStyle(color: textColor),
             ),
+            content: Text(
+              exitAppSubtitle,
+              style: TextStyle(color: textColor),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(
+                  exitAppNo,
+                  style: TextStyle(color: textColor),
+                ),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                /*Navigator.of(context).pop(true)*/
+                child: Text(
+                  exitAppYes,
+                  style: TextStyle(color: textColor),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
-    ) ??
+        ) ??
         false;
   }
 
   Future navigateToAppliedBiologyAndBiotechnologyDetailsPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAppliedBiologyAndBiotechnologyGraduatesDetailsPage()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyAppliedBiologyAndBiotechnologyGraduatesDetailsPage(clubId: widget.clubId)));
   }
+
   Future navigateToAboutAppDetailsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppDetails()));
   }
+
   Future navigateToAcronymsMeaningsPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => AcronymsMeanings()));
   }
+
   Future navigateToAboutUniversityState(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUniversityState()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUniversityState(clubId: widget.clubId)));
   }
+
   Future navigateToWhoWeArePage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => WhoWeAre()));
   }
 
   @override
   void initState() {
-    AppliedBiologyAndBiotechnologyNotifier appliedBiologyAndBiotechnologyNotifier = Provider.of<AppliedBiologyAndBiotechnologyNotifier>(context, listen: false);
-    getAppliedBiologyAndBiotechnology(appliedBiologyAndBiotechnologyNotifier);
-
+    AppliedBiologyAndBiotechnologyNotifier appliedBiologyAndBiotechnologyNotifier =
+        Provider.of<AppliedBiologyAndBiotechnologyNotifier>(context, listen: false);
+    getAppliedBiologyAndBiotechnology(appliedBiologyAndBiotechnologyNotifier, widget.clubId);
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     AppliedBiologyAndBiotechnologyNotifier appliedBiologyAndBiotechnologyNotifier = Provider.of<AppliedBiologyAndBiotechnologyNotifier>(context);
-
 
     return WillPopScope(
       onWillPop: _onWillPop,
@@ -284,95 +255,91 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
         body: Container(
           color: backgroundColor,
           child: NestedScrollView(
-            headerSliverBuilder: (BuildContext context,
-                bool innerBoxIsScrolled) {
+            headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
                   actions: <Widget>[
                     IconButton(
-                      icon: Icon(MdiIcons.formatFloatLeft,
-                          color: appBarIconColor),
+                      icon: Icon(MdiIcons.formatFloatLeft, color: appBarIconColor),
                       onPressed: () async {
                         showModalBottomSheet(
                             backgroundColor: modalBackgroundColor,
                             context: context,
                             builder: (context) => Container(
-                              height: 240,
-                              decoration: BoxDecoration(
-                                color: modalColor,
-                                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
-                              ),
-                              child: Material(
-                                color: materialBackgroundColor,
-                                child: InkWell(
-                                  splashColor: splashColor,
-                                  child: SingleChildScrollView(
-                                    scrollDirection: Axis.vertical,
-                                    child: Wrap(
-                                      children: <Widget>[
-                                        ListTile(
-                                            leading: new Icon(MdiIcons.atom, color: iconColor),
-                                            title: new Text(whoWeAre,
-                                              style: GoogleFonts.zillaSlab(
-                                                  color: textColor
-                                              ),),
-                                            onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToWhoWeArePage(context);
-                                            }
+                                  height: 240,
+                                  decoration: BoxDecoration(
+                                    color: modalColor,
+                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                                  ),
+                                  child: Material(
+                                    color: materialBackgroundColor,
+                                    child: InkWell(
+                                      splashColor: splashColor,
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.vertical,
+                                        child: Wrap(
+                                          children: <Widget>[
+                                            ListTile(
+                                                leading: new Icon(MdiIcons.atom, color: iconColor),
+                                                title: new Text(
+                                                  whoWeAre,
+                                                  style: GoogleFonts.zillaSlab(color: textColor),
+                                                ),
+                                                onTap: () {
+                                                  Navigator.of(context).pop(false);
+                                                  navigateToWhoWeArePage(context);
+                                                }),
+                                            ListTile(
+                                              leading: new Icon(MdiIcons.chessKing, color: iconColor),
+                                              title: new Text(
+                                                aboutUniversity,
+                                                style: GoogleFonts.zillaSlab(color: textColor),
+                                              ),
+                                              onTap: () {
+                                                Navigator.of(context).pop(false);
+                                                navigateToAboutUniversityState(context);
+                                              },
+                                            ),
+                                            ListTile(
+                                                leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
+                                                title: new Text(
+                                                  acronymMeanings,
+                                                  style: GoogleFonts.zillaSlab(color: textColor),
+                                                ),
+                                                onTap: () {
+                                                  Navigator.of(context).pop(false);
+                                                  navigateToAcronymsMeaningsPage(context);
+                                                }),
+                                            ListTile(
+                                              leading: new Icon(MdiIcons.opacity, color: iconColor),
+                                              title: new Text(
+                                                aboutApp,
+                                                style: GoogleFonts.zillaSlab(color: textColor),
+                                              ),
+                                              onTap: () {
+                                                Navigator.of(context).pop(false);
+                                                navigateToAboutAppDetailsPage(context);
+                                              },
+                                            ),
+                                          ],
                                         ),
-                                        ListTile(
-                                          leading: new Icon(MdiIcons.chessKing, color: iconColor),
-                                          title: new Text(aboutUniversity,
-                                            style: GoogleFonts.zillaSlab(
-                                                color: textColor
-                                            ),),
-                                          onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToAboutUniversityState(context);
-                                          },
-                                        ),
-                                        ListTile(
-                                            leading: new Icon(MdiIcons.sortAlphabeticalAscending, color: iconColor),
-                                            title: new Text(acronymMeanings,
-                                              style: GoogleFonts.zillaSlab(
-                                                  color: textColor
-                                              ),),
-                                            onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToAcronymsMeaningsPage(context);
-                                            }
-                                        ),
-                                        ListTile(
-                                          leading: new Icon(MdiIcons.opacity, color: iconColor),
-                                          title: new Text(aboutApp,
-                                            style: GoogleFonts.zillaSlab(
-                                                color: textColor
-                                            ),),
-                                          onTap: () {
-                                              Navigator.of(context).pop(false);
-                                              navigateToAboutAppDetailsPage(context);
-                                          },
-                                        ),
-
-                                      ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
-                            ));
+                                ));
                       },
                     ),
                     IconButton(
                       icon: Icon(MdiIcons.magnify, color: iconColor),
                       onPressed: appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList == null
                           ? null
-                          : (){
-                        showSearch(
-                          context: context,
-                          delegate: MyAppliedBiologyAndBiotechnologyGraduatesSearch(all: appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList),
-                        );
-                      },
+                          : () {
+                              showSearch(
+                                context: context,
+                                delegate: MyAppliedBiologyAndBiotechnologyGraduatesSearch(
+                                    all: appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList, clubId: widget.clubId),
+                              );
+                            },
                       tooltip: "Search",
                     ),
                   ],
@@ -384,16 +351,10 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
                     centerTitle: true,
                     title: Center(
                       heightFactor: 0.6,
-                      child: Text(
-                          thrownName,
-                          style: GoogleFonts.abel(
-                              color: appBarTextColor,
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.bold
-                          )
-                      ),
+                      child: Text(thrownName, style: GoogleFonts.abel(color: appBarTextColor, fontSize: 26.0, fontWeight: FontWeight.bold)),
                     ),
-                    background: Image.asset(imgAsset,
+                    background: Image.asset(
+                      imgAsset,
                       alignment: Alignment(0, -0.6),
                       fit: BoxFit.cover,
                     ),
@@ -404,14 +365,11 @@ class _MyAppliedBiologyAndBiotechnologyGraduatesPageState extends State<MyApplie
             body: Padding(
               padding: const EdgeInsets.only(left: 25, right: 10),
               child: Container(
-                margin: new EdgeInsets.only( bottom: 15),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10)
-                ),
+                margin: new EdgeInsets.only(bottom: 15),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
                 child: ListView.builder(
                   itemBuilder: _buildProductItem,
                   itemCount: appliedBiologyAndBiotechnologyNotifier.appliedBiologyAndBiotechnologyList.length,
-
                 ),
               ),
             ),

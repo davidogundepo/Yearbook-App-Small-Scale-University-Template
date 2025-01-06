@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CAS/FoodScienceAndNutrition.dart';
 
 class FoodScienceAndNutritionNotifier with ChangeNotifier {
   List<FoodScienceAndNutrition> _foodScienceAndNutritionList = [];
-  FoodScienceAndNutrition _currentFoodScienceAndNutrition;
+  late FoodScienceAndNutrition _currentFoodScienceAndNutrition;
 
   UnmodifiableListView<FoodScienceAndNutrition> get foodScienceAndNutritionList => UnmodifiableListView(_foodScienceAndNutritionList);
 
@@ -21,5 +21,4 @@ class FoodScienceAndNutritionNotifier with ChangeNotifier {
     _currentFoodScienceAndNutrition = foodScienceAndNutrition;
     notifyListeners();
   }
-
 }

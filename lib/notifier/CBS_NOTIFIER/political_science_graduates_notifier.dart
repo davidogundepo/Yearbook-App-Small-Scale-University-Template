@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/PoliticalScience.dart';
 
 class PoliticalScienceNotifier with ChangeNotifier {
   List<PoliticalScience> _politicalScienceList = [];
-  PoliticalScience _currentPoliticalScience;
+  late PoliticalScience _currentPoliticalScience;
 
   UnmodifiableListView<PoliticalScience> get politicalScienceList => UnmodifiableListView(_politicalScienceList);
 
@@ -21,5 +21,4 @@ class PoliticalScienceNotifier with ChangeNotifier {
     _currentPoliticalScience = politicalScience;
     notifyListeners();
   }
-
 }

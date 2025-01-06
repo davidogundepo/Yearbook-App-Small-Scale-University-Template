@@ -1,14 +1,15 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/COE/AgriculturalAndBiosystemEngineering.dart';
 
 class AgriculturalAndBiosystemEngineeringNotifier with ChangeNotifier {
   List<AgriculturalAndBiosystemEngineering> _agriculturalAndBiosystemEngineeringList = [];
-  AgriculturalAndBiosystemEngineering _currentAgriculturalAndBiosystemEngineering;
+  late AgriculturalAndBiosystemEngineering _currentAgriculturalAndBiosystemEngineering;
 
-  UnmodifiableListView<AgriculturalAndBiosystemEngineering> get agriculturalAndBiosystemEngineeringList => UnmodifiableListView(_agriculturalAndBiosystemEngineeringList);
+  UnmodifiableListView<AgriculturalAndBiosystemEngineering> get agriculturalAndBiosystemEngineeringList =>
+      UnmodifiableListView(_agriculturalAndBiosystemEngineeringList);
 
   AgriculturalAndBiosystemEngineering get currentAgriculturalAndBiosystemEngineering => _currentAgriculturalAndBiosystemEngineering;
 
@@ -21,5 +22,4 @@ class AgriculturalAndBiosystemEngineeringNotifier with ChangeNotifier {
     _currentAgriculturalAndBiosystemEngineering = agriculturalAndBiosystemEngineering;
     notifyListeners();
   }
-
 }

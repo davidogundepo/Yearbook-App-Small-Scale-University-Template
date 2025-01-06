@@ -1,14 +1,15 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CAS/AquacultureAndFisheriesManagement.dart';
 
 class AquacultureAndFisheriesManagementNotifier with ChangeNotifier {
   List<AquacultureAndFisheriesManagement> _aquacultureAndFisheriesManagementList = [];
-  AquacultureAndFisheriesManagement _currentAquacultureAndFisheriesManagement;
+  late AquacultureAndFisheriesManagement _currentAquacultureAndFisheriesManagement;
 
-  UnmodifiableListView<AquacultureAndFisheriesManagement> get aquacultureAndFisheriesManagementList => UnmodifiableListView(_aquacultureAndFisheriesManagementList);
+  UnmodifiableListView<AquacultureAndFisheriesManagement> get aquacultureAndFisheriesManagementList =>
+      UnmodifiableListView(_aquacultureAndFisheriesManagementList);
 
   AquacultureAndFisheriesManagement get currentAquacultureAndFisheriesManagement => _currentAquacultureAndFisheriesManagement;
 
@@ -21,5 +22,4 @@ class AquacultureAndFisheriesManagementNotifier with ChangeNotifier {
     _currentAquacultureAndFisheriesManagement = aquacultureAndFisheriesManagement;
     notifyListeners();
   }
-
 }

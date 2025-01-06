@@ -1,12 +1,12 @@
-
 import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
+
 import '../../model/CBS/Accounting.dart';
 
 class AccountingNotifier with ChangeNotifier {
   List<Accounting> _accountingList = [];
-  Accounting _currentAccounting;
+  late Accounting _currentAccounting;
 
   UnmodifiableListView<Accounting> get accountingList => UnmodifiableListView(_accountingList);
 
@@ -21,5 +21,4 @@ class AccountingNotifier with ChangeNotifier {
     _currentAccounting = accounting;
     notifyListeners();
   }
-
 }
